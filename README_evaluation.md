@@ -4,9 +4,9 @@
 
 ## 🎯 评估目标
 
-说白了，我们就是要用数据证明一件事：**RAG真的比裸LLM好用吗？**
+**RAG真的比裸LLM好用吗？**
 
-很多人搭建了RAG系统，但心里总是没底 - 这玩意儿到底有没有用？是不是纯粹的安慰剂效应？我们的评估系统就是来解决这个疑问的。
+
 
 ### 评估逻辑很简单
 
@@ -89,7 +89,7 @@ print(f"结论: {result['conclusion']}")
 
 ### KubeSphere专门评估
 
-基于您的KubeSphere知识库构造的专门测试问题集：
+基于KubeSphere知识库构造的专门测试问题集：
 
 ```python
 from src.evaluation.evaluation_runner import EvaluationRunner
@@ -406,5 +406,3 @@ runner.run_kubesphere_evaluation(
 5. **人工验证**: 对关键问题进行人工检查，验证自动评估的准确性
 
 
-
-通过这套评估系统，您可以客观地证明RAG系统相对于裸LLM的优势，并持续优化系统性能。有数据支撑的RAG，才是真正有说服力的RAG。

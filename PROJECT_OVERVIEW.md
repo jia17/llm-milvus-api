@@ -37,33 +37,33 @@
 
 系统采用前后端分离的架构，核心业务逻辑由 LangGraph 工作流驱动，并通过 Milvus 向量数据库提供知识检索能力。
 
-```mermaid
-graph TD
-    subgraph 用户接口
-        A[Web UI (Streamlit)]
-        B[API (FastAPI)]
-        C[CLI (Click)]
-    end
+**架构说明**:
 
-    subgraph 核心服务
-        D[LangGraph Workflow]
-    end
+1.  **接口层**:
+    *   `Streamlit` (`src/web/streamlit_app.py`): 提供用户友好的Web界面。
+    *   `FastAPI` (`src/api/app.py`): 暴露所有核心功能的RESTful API端点，是系统集成的主要入口。
+    *   `Click` (`src/cli/cli.py`): 提供命令行接口，方便脚本化和批量处理。
+    *   这三者相互独立，但都调用下游的`RAG Workflow`来执行核心逻辑。
 
-    subgraph 基础设施
-        E[Milvus 向量数据库]
-        F[LLM API (Kimi/SiliconFlow)]
-    end
+2.  **编排层**:
+    *   `LangGraph` (`src/graph/workflow.py`): 系统的“大脑”，负责定义和执行整个RAG流程。它以图（Graph）的形式将不同的功能节点（如意图识别、检索、生成）连接起来，并根据输入状态（State）决定执行路径，实现了业务逻辑与功能组件的解耦。
 
-    A -- HTTP Request --> B
-    C -- 调用 --> D
-    B -- 调用 --> D
+3.  **核心逻辑层**:
+    *   `Intent Recognizer`: 识别用户输入的意图，判断是普通聊天、知识问答还是文档上传，从而决定工作流的走向。
+    *   `Document Loader`: 负责加载和解析不同格式的文档，并将其切割成合适的文本块（Chunk）。
+    *   `Hybrid Retriever`: 混合检索器，是RAG效果的关键。它内部包含：
+        *   **Dense Retriever**: 调用`Embedding Manager`将查询文本向量化，然后在`Milvus`中进行语义相似度搜索。
+        *   **Sparse Retriever**: 基于`jieba`分词和`BM25`算法实现关键词检索。
+        *   最后，将两路结果进行加权融合（RRF），得到最终的检索上下文。
+    *   `RAG Generator`: 将用户的原始问题和`Hybrid Retriever`检索到的上下文信息组合成一个Prompt，然后调用外部的`Kimi LLM API`生成最终答案。
+    *   `Session Manager`: 负责管理多轮对话的上下文历史，将会话数据保存在文件系统中。
 
-    D -- 文档处理/问答 --> E
-    D -- 生成请求 --> F
+4.  **数据存储层**:
+    *   `Milvus`: 核心的向量数据库，存储所有文档块的向量嵌入，并提供高速的向量检索能力。通过`docker-compose.yml`部署，依赖`MinIO`（对象存储）和`etcd`（元数据）。
+    *   `File System`: 用于存储会话历史等非向量化数据。
 
-    E -- 检索结果 --> D
-    F -- 生成结果 --> D
-```
+5.  **外部服务**:
+    *   系统通过API调用外部的LLM（Kimi）和Embedding模型服务（SiliconFlow）。这部分在`config.yaml`中配置，易于替换。
 
 ## 5. 数据流
 
