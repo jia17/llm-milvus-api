@@ -1,0 +1,86 @@
+{
+  "session_id": "dc013ecc-509e-400c-a221-2bd117d86820",
+  "title": "对话 08-30 20:22",
+  "created_at": "2025-08-30T12:22:20.913973+00:00",
+  "updated_at": "2025-08-30T12:22:39.919158+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello 你好 我是tim",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "你好，Tim！有什么可以帮助你的吗？如果你对开发、技术或者任何其他问题有疑问，随时告诉我！",
+      "metadata": {
+        "mode": "rag",
+        "intent": "uncertain",
+        "confidence": 0.3,
+        "rag_used": true,
+        "retrieval_time": 0.8508760929107666,
+        "generation_time": 1.1132259368896484,
+        "chunks_retrieved": 5,
+        "chunks_filtered": 2,
+        "sources": [
+          {
+            "content": "中分别添加以下词条：  srclocalesenbase.json  \"HELLO_WORLD_DESC\": \"Hello World! The current language code is languageCode.\"   srclocaleszhbase.json  \"HELLO_WORLD_DESC\": \"你好世界！当前的语言代码为 languageCode。\"  为了避免 core 和各扩展组件的词条 key 重复，建议在词条前加上扩展组件 name 的前缀，例如 HELLO_WORLD.HELLO_WORLD_DESC。后续我们可能会对重复词条进行检测和限制。 2. 在扩展组件的入口文件（例如 srcindex.js ）中引入语言包： import routes from '.routes'; import locales from '.locales';  引入语言包 const menus    parent: 'topbar', name: 'hello-world', link: 'hello-world', title: 'HELLO_WORLD', icon: 'cluster',",
+            "score": 4.594305707565288,
+            "metadata": {
+              "filename": "kubesphere_dev_guide.md",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus/temp/kubesphere_dev_guide.md",
+              "file_size": 204947,
+              "file_type": ".md",
+              "created_time": 1756555393.9303586,
+              "modified_time": 1756555393.9303586,
+              "chunk_index": 184,
+              "chunk_start": 82573,
+              "chunk_end": 83085,
+              "chunk_length": 511
+            },
+            "doc_id": "doc_fd4990b79c00ac05",
+            "chunk_index": 184
+          },
+          {
+            "content": "其他语言包。前端界面的词条通常保存在 JSON 文件中，支持在每个语言包中创建多个 JSON 文件。 kubesphere-extensions  frontend  extensions  hello-world  src  locales  en   base.json   index.js  index.js  zh  base.json  index.js  开发步骤 下面以 Hello Worldextension-dev-guidezhquickstarthello-world-extension 扩展组件为例，演示如何在扩展组件前端分别显示英文词条 Hello World! The current language code is languageCode. 和中文词条你好世界！当前的语言代码为 languageCode。，并向 languageCode 变量动态传入当前环境的语言代码。 1. 在 srclocalesenbase.json 文件和 srclocaleszhbase.json 文件中分别添加以下词条：  srclocalesenbase.json  \"HELLO_WORLD_DE",
+            "score": 3.9504713928978736,
+            "metadata": {
+              "filename": "kubesphere_dev_guide.md",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus/temp/kubesphere_dev_guide.md",
+              "file_size": 204947,
+              "file_type": ".md",
+              "created_time": 1756555393.9303586,
+              "modified_time": 1756555393.9303586,
+              "chunk_index": 183,
+              "chunk_start": 82111,
+              "chunk_end": 82623,
+              "chunk_length": 512
+            },
+            "doc_id": "doc_fd4990b79c00ac05",
+            "chunk_index": 183
+          }
+        ]
+      }
+    },
+    {
+      "role": "user",
+      "content": "你知道我是谁吗",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "你好Tim！在这个对话中，我只是了解到你的名字，对于你是谁的细节我并不清楚。我们之间的交流就像是在一个新的对话中开始，每次对话都是独立的，我无法记住之前的交流内容。但我在这里很乐意与你交谈，无论你想要讨论什么话题。",
+      "metadata": {
+        "mode": "rag",
+        "intent": "uncertain",
+        "confidence": 0.3,
+        "rag_used": true,
+        "retrieval_time": 0.5867908000946045,
+        "generation_time": 1.37119722366333,
+        "chunks_retrieved": 1,
+        "chunks_filtered": 0
+      }
+    }
+  ],
+  "metadata": {},
+  "compressed": false
+}

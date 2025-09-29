@@ -1,0 +1,182 @@
+# LLM RAG Project Configuration
+
+# API Keys (set these as environment variables for security)
+api_keys:
+  kimi_api_key: "sk-sSqWIxpm0Y6vk35c3OsZNLDn6LpPNZHJ8NAfFaAxhYkWkkFw"
+  siliconflow_api_key: "sk-evutupykegqtffjcjhhcezzakgvsojlshgaazhbjvflmjorg"
+  qwen_api_key: "your-qwen-api-key-here"
+
+# Embedding Configuration
+embedding:
+  provider: "siliconflow"
+  model: "BAAI/bge-large-zh-v1.5"
+  api_base: "https://api.siliconflow.cn/v1"
+  dimension: 1024
+  batch_size: 32
+  max_retries: 3
+
+# LLM Configuration
+llm:
+  provider: "kimi"  # kimi or qwen
+  model: "moonshot-v1-8k"
+  api_base: "https://api.moonshot.cn/v1"
+  max_tokens: 4096
+  temperature: 0.7
+  max_retries: 3
+
+  # Qwen specific configuration
+  qwen:
+    model: "qwen-plus"  # qwen-plus, qwen-turbo, qwen-max
+    api_base: "https://dashscope.aliyuncs.com/api/v1"
+    max_tokens: 4096
+    temperature: 0.7
+    max_retries: 3
+
+  # Kimi specific configuration
+  kimi:
+    model: "moonshot-v1-8k"
+    api_base: "https://api.moonshot.cn/v1"
+    max_tokens: 4096
+    temperature: 0.7
+    max_retries: 3
+
+# Milvus Configuration
+milvus:
+  host: "localhost"
+  port: 19530
+  collection_name: "document_collection"
+  index_type: "IVF_FLAT"
+  metric_type: "COSINE"  # 使用余弦相似度
+  nlist: 1024
+  search_params:
+    nprobe: 16
+
+# Document Processing
+document:
+  chunk_size: 512
+  chunk_overlap: 50
+  supported_formats: [".pdf", ".txt", ".md", ".docx"]
+  max_file_size: 10485760  # 10MB in bytes
+
+# Retrieval Configuration
+retrieval:
+  top_k: 5
+  similarity_threshold: 0.3  # 余弦相似度阈值，0-1范围，0.3为合理阈值
+  dense_weight: 0.7
+  sparse_weight: 0.3
+  rerank: true
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  title: "LLM RAG API"
+  description: "智能问答系统API"
+  version: "1.0.0"
+
+# Web Configuration
+web:
+  title: "智能问答系统"
+  max_upload_size: 10485760  # 10MB
+  page_config:
+    page_title: "LLM RAG"
+    layout: "wide"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  rotation: "1 week"
+  retention: "1 month"
+
+# Conversation Management Configuration
+conversation:
+  # 会话管理
+  storage_dir: "./data/sessions"
+  enable_compression: true
+  enable_checkpoints: true
+  
+  # 上下文压缩配置
+  compression:
+    max_uncompressed_messages: 20
+    compression_ratio: 0.3
+    preserve_recent_messages: 5
+    
+  # 检查点配置
+  checkpoints:
+    auto_checkpoint_interval: 10  # 每10条消息自动创建检查点
+    max_checkpoints_per_session: 5
+    
+  # 会话清理
+  cleanup:
+    auto_cleanup_days: 30
+    max_sessions: 1000
+
+# LangGraph Configuration
+langgraph:
+  # 工作流配置
+  workflow:
+    max_concurrency: 10
+    timeout: 300  # 5分钟超时
+    enable_checkpointing: true
+
+  # 状态管理配置
+  state:
+    persist_messages: true
+    max_history_length: 50
+
+  # 节点配置
+  nodes:
+    intent_recognizer:
+      confidence_threshold: 0.5
+    document_processor:
+      max_file_size: 10485760  # 10MB
+      temp_dir: "./temp"
+    retriever:
+      default_top_k: 5
+      enable_caching: true
+    generator:
+      max_context_tokens: 8000
+      temperature: 0.7
+
+# Self-RAG Configuration
+self_rag:
+  # 启用/禁用 Self-RAG
+  enabled: true
+
+  # 质量阈值
+  quality_thresholds:
+    min_retrieval_quality: 0.5    # 检索质量最低阈值
+    min_generation_quality: 0.6   # 生成质量最低阈值
+    min_overall_confidence: 0.4   # 总体置信度阈值
+
+  # 迭代控制
+  iteration:
+    max_iterations: 3             # 最大迭代次数
+    enable_parameter_adjustment: true  # 是否启用参数自动调整
+
+  # 评估配置
+  evaluation:
+    retrieval:
+      min_relevance_threshold: 0.5   # 相关性阈值
+      enable_semantic_analysis: true  # 启用语义分析
+    generation:
+      enable_llm_evaluation: false    # 是否使用LLM辅助评估（耗时较长）
+      faithfulness_weight: 0.4        # 忠实度权重
+      consistency_weight: 0.3         # 一致性权重
+      completeness_weight: 0.3        # 完整性权重
+
+  # 决策策略
+  decision:
+    retrieval:
+      reject_threshold: 0.2           # 拒绝阈值
+      clarify_threshold: 0.4          # 需要澄清阈值
+    generation:
+      hallucination_penalty: 0.15     # 幻觉惩罚系数
+      uncertainty_limit: 3            # 不确定词汇限制
+
+  # 性能配置
+  performance:
+    enable_quick_mode: true           # 启用快速模式（简化评估）
+    parallel_evaluation: false       # 并行评估（实验性）
+    cache_evaluations: true          # 缓存评估结果

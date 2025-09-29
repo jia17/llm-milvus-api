@@ -1,0 +1,18 @@
+{
+  "session_id": "64aa2fa5-5493-4c1d-9739-9f3d6af82330",
+  "title": "对话 08-30 18:49",
+  "created_at": "2025-08-30T10:49:53.356488+00:00",
+  "updated_at": "2025-08-30T10:49:58.346490+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好啊"
+    },
+    {
+      "role": "assistant",
+      "content": "你好！有什么可以帮你的吗？😊"
+    }
+  ],
+  "metadata": {},
+  "compressed": false
+}

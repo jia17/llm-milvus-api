@@ -1,0 +1,400 @@
+{
+  "overall_evaluation": {
+    "total_questions": 8,
+    "rag_wins": 7,
+    "baseline_wins": 0,
+    "ties": 1,
+    "avg_rag_score": 0.7976955172097522,
+    "avg_baseline_score": 0.48036888111888115,
+    "avg_improvement": 0.7274325722768878,
+    "category_performance": {
+      "基础概念": {
+        "win_rate": 1.0,
+        "avg_rag_score": 0.76,
+        "avg_baseline_score": 0.45400000000000007,
+        "avg_improvement": 0.674008810572687,
+        "total_questions": 1
+      },
+      "部署安装": {
+        "win_rate": 0.5,
+        "avg_rag_score": 0.7462168514477046,
+        "avg_baseline_score": 0.5514755244755245,
+        "avg_improvement": 0.5439454152467433,
+        "total_questions": 2
+      },
+      "可观测性": {
+        "win_rate": 1.0,
+        "avg_rag_score": 0.8270434782608697,
+        "avg_baseline_score": 0.4626666666666666,
+        "avg_improvement": 0.7927519818360453,
+        "total_questions": 3
+      },
+      "通知管理": {
+        "win_rate": 1.0,
+        "avg_rag_score": 0.8140000000000001,
+        "avg_baseline_score": 0.42400000000000004,
+        "avg_improvement": 0.9198113207547169,
+        "total_questions": 1
+      },
+      "架构设计": {
+        "win_rate": 1.0,
+        "avg_rag_score": 0.8340000000000001,
+        "avg_baseline_score": 0.4740000000000001,
+        "avg_improvement": 0.7594936708860758,
+        "total_questions": 1
+      }
+    },
+    "performance_summary": {
+      "rag_win_rate": 0.875,
+      "avg_improvement_percentage": 72.74325722768879,
+      "best_category": "基础概念",
+      "worst_category": "部署安装",
+      "overall_conclusion": "RAG系统显著优于基线模型"
+    }
+  },
+  "detailed_results": [
+    {
+      "question": {
+        "question": "什么是KubeSphere？",
+        "category": "基础概念",
+        "expected_knowledge": "KubeSphere的定义和基本功能",
+        "difficulty": "简单",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere 是一个完全开源的平台，它是建立在 Kubernetes 之上的容器混合云管理系统，专门面向云原生应用。它具有以下特点和功能：\n\n1. **多云与多集群管理**：KubeSphere 支持多云与多集群管理，使得企业可以跨不同云环境和多个 Kubernetes 集群进行统一管理。\n\n2. **全栈自动化运维能力**：提供全栈的自动化运维能力，简化企业的 DevOps 工作流，帮助企业更高效地进行运维管理。\n\n3. **向导式操作界面**：提供了运维友好的向导式操作界面，使得企业能够快速构建一个强大和功能丰富的容器云平台。\n\n4. **企业级 Kubernetes 环境功能**：包括 Kubernetes 资源管理、DevOps、应用生命周期管理、微服务治理（服务网格）、日志查询与收集、服务与网络、多租户管理、监控告警、事件与审计查询、存储管理、访问权限控制、GPU 支持、网络策略、镜像仓库管理以及安全管理等。\n\n5. **轻量架构模式**：得益于 Kubernetes 的优秀架构与设计，KubeSphere 采用了更为轻量的架构模式，灵活整合资源，进一步丰富了 K8s 生态。\n\n6. **云原生可观测性**：KubeSphere 能够实现从基础设施层级到容器微服务层级的多维度日志与监控，并支持逐级下钻定位异常资源，满足多租户隔离的需求。\n\n7. **DevOps 支持**：对于 DevOps 团队而言，KubeSphere 提供了运维与管理众多开源工具链的能力，帮助团队解决 CICD 工具繁多、涉及人员和环境较多、流程相对复杂等问题。\n\n综上所述，KubeSphere 是一个功能全面的多租户容器平台，它通过提供多项企业级 Kubernetes 环境所需的功能，帮助企业简化 DevOps 工作流，快速构建容器云平台，并增强云原生应用的可观测性。",
+      "baseline_answer": "根据您提供的问题和建议，我可以直接回答您的问题。KubeSphere 是一个开源的容器平台，它在 Kubernetes 之上提供了一个全栈的容器管理系统，旨在简化企业的多云和混合云部署。KubeSphere 提供了一个丰富的功能集，包括但不限于：\n\n1. **多租户管理**：支持企业中的不同团队或项目通过租户隔离的方式共享同一个 Kubernetes 集群。\n2. **应用商店**：提供了一系列预配置的应用模板，用户可以快速部署和管理应用。\n3. **监控与日志**：集成了监控和日志管理功能，方便用户跟踪集群和应用的性能。\n4. **CI/CD 管道**：支持持续集成和持续部署，帮助开发者自动化构建和部署流程。\n5. **网络和存储**：提供了网络策略管理和存储卷管理，以满足不同应用的网络和存储需求。\n\nKubeSphere 旨在为用户提供一个友好的用户界面和丰富的功能，从而简化 Kubernetes 的操作和管理。希望这个回答能够帮助您了解 KubeSphere 的基本概念。如果您有更具体的问题或需要详细信息，建议查阅官方文档或相关技术资料。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.4,
+        "overall_score": 0.76,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.45400000000000007,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.631336752509821,
+        "confidence": 0.9094523630778842,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 9.34165096282959,
+      "baseline_response_time": 5.515040874481201,
+      "winner": "rag",
+      "improvement_score": 0.674008810572687
+    },
+    {
+      "question": {
+        "question": "KubeSphere最小化部署需要哪些系统资源？",
+        "category": "部署安装",
+        "expected_knowledge": "CPU、内存、磁盘等资源需求",
+        "difficulty": "简单",
+        "ground_truth": null
+      },
+      "rag_answer": "根据提供的文档内容，KubeSphere的最小化部署主要涉及到的是KubeSphere-Core功能，这可以实现最小化的KubeSphere和完整的Kubernetes集群的部署。文档中并没有明确列出具体的系统资源需求，如CPU、内存、磁盘空间等具体数值。但是，我们可以从文档中提取一些相关信息来推断最小化部署可能需要的系统资源：\n\n1. **操作系统支持**：文档[文档4]和[文档5]提到了在ARM架构上部署KubeSphere，特别是针对Kylin Linux Advanced Server V10 Halberd操作系统。这意味着KubeSphere最小化部署至少需要支持该操作系统。\n\n2. **内核版本**：文档[文档4]中提到了操作系统内核版本为Linux node1 4.19.90-52.22.v2207.ky10.aarch，表明KubeSphere的最小化部署需要至少这个版本的内核。\n\n3. **Kubernetes支持**：文档[文档5]提到了Kubernetes版本为v1.26.5，这是部署KubeSphere所需的Kubernetes集群版本。\n\n4. **Containerd支持**：文档[文档5]中提到Containerd版本为1.6.4，这是KubeSphere部署所需的容器运行时。\n\n5. **KubeKey工具**：文档[文档5]提到使用KubeKey工具实现自动化部署，这是部署KubeSphere所需的工具。\n\n综上所述，KubeSphere的最小化部署至少需要支持Kylin Linux Advanced Server V10 Halberd操作系统、Linux内核版本4.19.90-52.22.v2207.ky10.aarch、Kubernetes v1.26.5以及Containerd 1.6.4。具体的CPU、内存和存储资源需求没有在文档中明确提供，通常这些资源需求会根据具体的工作负载和使用场景有所不同，需要根据实际情况进行评估和配置。",
+      "baseline_answer": "您好，根据您提供的信息，没有找到关于KubeSphere最小化部署所需系统资源的具体文档内容。但是，我可以为您提供一个参考性的建议。\n\nKubeSphere是一个基于Kubernetes的容器平台，最小化部署通常需要考虑以下几个方面：\n\n1. **Kubernetes集群**：KubeSphere运行在Kubernetes集群之上，因此需要有一个Kubernetes集群作为基础。Kubernetes集群的资源需求取决于您的应用负载和节点数量。\n\n2. **CPU和内存**：对于KubeSphere的控制平面（Master节点），通常推荐至少有2核CPU和4GB内存。对于工作节点（Worker节点），资源需求取决于您要运行的工作负载。\n\n3. **存储**：KubeSphere的持久存储需求取决于您的应用需要存储的数据量。通常，Master节点需要至少20GB的存储空间，而工作节点的存储需求则取决于您的业务需求。\n\n4. **网络**：KubeSphere需要网络连接来进行集群管理和通信，因此需要确保您的网络配置可以满足KubeSphere的需求。\n\n5. **操作系统**：KubeSphere支持在多种操作系统上运行，如Linux和KVM虚拟机。\n\n请注意，这些只是一般性的建议，实际的系统资源需求可能会根据您的具体使用场景有所不同。为了获得更具体的资源配置建议，您可以考虑查阅KubeSphere的官方文档或者社区支持，以获取最新的部署指南和资源需求信息。如果您有具体的部署场景或需求，也可以提供更多的细节，以便进行更精确的资源规划。",
+      "rag_quality": {
+        "faithfulness_score": 0.9714867617107943,
+        "consistency_score": 0.6358974358974359,
+        "completeness_score": 0.4,
+        "overall_score": 0.6993639354535485,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.798646404511985
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.8,
+        "consistency_score": 0.7692307692307692,
+        "completeness_score": 0.6,
+        "overall_score": 0.7307692307692308,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.5815384615384614
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7254978354978354,
+        "confidence": 0.9579628166370447,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 19.811614990234375,
+      "baseline_response_time": 8.199551105499268,
+      "winner": "tie",
+      "improvement_score": -0.04297566727409166
+    },
+    {
+      "question": {
+        "question": "KubeSphere中的日志收集是如何实现的？",
+        "category": "可观测性",
+        "expected_knowledge": "KubeSphere日志收集架构和实现方式",
+        "difficulty": "中等",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere中的日志收集是通过Fluent Bit实现的。具体来说，Fluent Bit作为一个开源的日志处理器和转发器，负责将Pod日志收集到ElasticSearch集群中进行持久化存储。以下是日志收集的具体实现细节：\n\n1. **Fluent Bit的集成**：KubeSphere利用Fluent Bit将容器日志收集并转发至ElasticSearch。这一点在[文档1]中有所提及：“KubeSphere的日志收集是通过Fluent Bit实现的，Fluent Bit将Pod日志收集到ElasticSearch集群，KubeSphere通过查询ElasticSearch集群实现日志检索。”\n\n2. **日志存储**：Fluent Bit收集的日志会被存储到ElasticSearch集群中。日志会按照每天一个分片进行存储，并且KubeSphere支持配置日志的保存周期，超过保存周期的日志会被自动删除。[文档3]中提到：“Fluent Bit会将日志收集到ElasticSearch集群中进行持久化，日志会按照每天一个分片进行存储，KubeSphere支持配置日志的保存周期，超过保存周期的日志会被自动删除。”\n\n3. **日志检索**：在收集日志的过程中，Fluent Bit会将容器的元数据信息添加到日志中，这使得KubeSphere可以为用户提供丰富的日志查询方式。[文档3]中提到：“Fluent Bit在收集日志时，会将容器的元数据信息添加到日志，因此KubeSphere可以为用户提供了丰富的日志查询方式。”\n\n4. **日志管理**：KubeSphere支持多租户日志管理，实现不同租户日志分权分域，增强了日志管理的灵活性和安全性。\n\n综上所述，KubeSphere中的日志收集主要依赖于Fluent Bit，它负责收集、存储和检索日志，同时支持日志的持久化存储、按需查询以及多租户管理。",
+      "baseline_answer": "您好，根据您提出的问题“KubeSphere中的日志收集是如何实现的？”，我需要查阅相关的文档内容才能为您提供准确的答案。但是，目前我没有收到任何与KubeSphere日志收集相关的文档。因此，我无法直接回答您的问题。\n\n不过，我可以为您提供一些建议来帮助您获取所需的信息：\n1. **上传文档**：如果您手头有关于KubeSphere日志收集的文档，您可以通过上传功能将这些文档上传给我，我将能够查阅这些文档后为您提供具体的答案。\n2. **详细描述**：如果您对KubeSphere的日志收集有更具体的问题或需求，请详细描述，我将尽我所能为您提供帮助。\n3. **关键词调整**：您可以尝试使用不同的关键词重新提问，以便于我更准确地找到相关信息。\n\n请根据上述建议操作，或者提供更多的信息，以便我能够为您提供更准确的答案。",
+      "rag_quality": {
+        "faithfulness_score": 0.9978260869565219,
+        "consistency_score": 0.8666666666666667,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8331304347826088,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.921304347826087
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.9333333333333333,
+        "completeness_score": 0.4,
+        "overall_score": 0.43999999999999995,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.09999999999999998
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9239999999999998,
+        "confidence": 0.9468941092855064,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 18.224541902542114,
+      "baseline_response_time": 4.836404800415039,
+      "winner": "rag",
+      "improvement_score": 0.8934782608695658
+    },
+    {
+      "question": {
+        "question": "如何在KubeSphere中配置邮件告警通知？",
+        "category": "可观测性",
+        "expected_knowledge": "邮件通知配置步骤、Config和Receiver的使用",
+        "difficulty": "中等",
+        "ground_truth": null
+      },
+      "rag_answer": "在KubeSphere中配置邮件告警通知，可以按照以下步骤进行：\n\n1. **定义CRD（Custom Resource Definitions）**：\n   - 根据文档2，“NotificationManager” CRD用于配置Webhook，包括镜像、副本数、volumes、亲和性、污点、资源配额等，同时定义了发送通知所需的配置，如全局接收者和默认配置选择器、租户标签、租户级接收者选择器，以及通知渠道的全局配置。\n   - “Config” CRD用于定义通知渠道的发送方配置信息，例如邮件发送服务器设置。\n   - “Receiver” CRD用于定义通知渠道的接收方信息，例如邮件接收者。\n\n2. **设置全局Email配置**：\n   - 根据文档3，管理员可以设置全局的Email Config，这是通知渠道的发送方配置，涉及到邮件服务器的设置。\n\n3. **配置邮件接收者**：\n   - 租户需要配置接收邮箱信息，这可以通过“Receiver” CRD来实现。\n\n4. **关联告警规则和通知**：\n   - 用户可以基于预置规则模板（如CPU、内存等）或使用PromQL语句自定义告警规则，如文档1中提到的当CoreDNS CPU用量大于等于0.1Core时触发告警。\n   - 告警规则需要与邮件通知配置相关联，确保当告警触发时，相应的邮件通知可以发送给配置好的接收者。\n\n5. **查看告警消息和通知历史**：\n   - 一旦告警触发，用户可以在告警消息和通知历史处查看到相应的条目，并且会收到一封告警邮件，如文档1所述。\n\n综上所述，配置邮件告警通知涉及到在KubeSphere中创建和配置相关的CRD资源，包括NotificationManager、Config和Receiver，以及设置告警规则和通知的关联。通过这些步骤，可以完成邮件告警通知的配置。",
+      "baseline_answer": "很抱歉，根据您提供的指示，目前我并没有访问到任何文档内容，因此无法提供具体的步骤或指导来说明如何在KubeSphere中配置邮件告警通知。不过，我可以为您提供一个一般性的指导思路：\n\n1. **访问KubeSphere控制台**：首先，您需要登录到KubeSphere的Web控制台。\n\n2. **导航到告警设置**：在KubeSphere的菜单中找到“监控与告警”或者“告警”相关的部分，点击进入。\n\n3. **配置告警规则**：在告警设置中，您需要创建或编辑告警规则，以便在特定条件下触发告警。\n\n4. **设置通知方式**：在告警规则的设置中，通常会有一个选项允许您配置通知方式。这里您需要选择“邮件”作为通知方式。\n\n5. **填写邮件服务器信息**：您需要提供邮件服务器的相关信息，包括SMTP服务器地址、端口、用户名和密码等。\n\n6. **配置接收者邮箱**：设置好邮件服务器信息后，您需要指定接收告警通知的邮箱地址。\n\n7. **测试配置**：完成配置后，最好发送一个测试邮件以确保配置正确无误。\n\n8. **保存并启用告警规则**：确认无误后，保存您的配置，并启用告警规则。\n\n如果您有具体的KubeSphere文档或者想要了解更多细节，请上传相应的文档，我将能够提供更具体的指导。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8140000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.9333333333333333,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.494,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.09999999999999998
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.738007326007326,
+        "confidence": 0.9619665876530733,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 19.225406408309937,
+      "baseline_response_time": 6.72843599319458,
+      "winner": "rag",
+      "improvement_score": 0.6477732793522268
+    },
+    {
+      "question": {
+        "question": "Notification Manager定义了哪些CRD？每个CRD的作用是什么？",
+        "category": "通知管理",
+        "expected_knowledge": "NotificationManager、Config、Receiver三个CRD的定义和作用",
+        "difficulty": "中等",
+        "ground_truth": null
+      },
+      "rag_answer": "根据提供的文档内容，Notification Manager定义了以下CRD以及它们各自的作用：\n\n1. **NotificationManager CRD**：\n   - 作用：用于配置Webhook，包括镜像、副本数、volumes、亲和性、污点、资源配额等。同时定义了发送通知所需的配置，例如全局接收者和默认配置选择器、租户标签、租户级接收者选择器，以及通知渠道的全局配置。\n\n2. **Config CRD**：\n   - 作用：用于定义通知渠道的发送方的配置信息，例如邮件发送服务器设置、企业微信用于发送消息的APP的信息等。\n\n3. **Receiver CRD**：\n   - 作用：用于定义通知渠道的接收方的信息，例如邮件接收者、企业微信中的用户或部门，slack的频道等。\n\n这些CRD共同支持Notification Manager实现通知渠道的配置和管理，包括通知的发送方和接收方信息，以及通知的发送和接收配置。",
+      "baseline_answer": "根据您提供的问题，您想要了解Notification Manager定义了哪些CRD（Custom Resource Definitions，自定义资源定义）以及它们各自的作用。然而，您没有提供任何文档内容供我参考，因此我无法直接回答您的问题。\n\n但是，我可以给您一个一般性的答案。在Kubernetes环境中，Notification Manager作为一个管理通知的系统，可能会定义以下几种CRD：\n\n1. **NotificationRule**：这个CRD可能用于定义通知规则，包括通知的触发条件、通知的目标（如邮箱、Webhook等）、通知内容的模板等。\n\n2. **NotificationEndpoint**：这个CRD用于定义接收通知的端点信息，例如邮箱地址、Webhook URL等。\n\n3. **NotificationStatus**：这个CRD可能用于跟踪和记录通知的状态，例如通知是否成功发送、接收方是否确认等。\n\n4. **NotificationReceiver**：这个CRD可能用于定义接收通知的用户或服务，以及它们的通知偏好设置。\n\n请注意，上述CRD只是可能的示例，并不是所有Notification Manager都会定义这些CRD，具体的定义和作用会根据实际的系统设计和需求而有所不同。如果您有具体的Notification Manager的文档或代码，您可以上传这些资料，我将能够为您提供更准确的答案。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8140000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.7,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.42400000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低",
+          "答案中不确定表述过多"
+        ],
+        "confidence": 0.24
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.61,
+        "confidence": 0.9338721583230065,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 15.14009714126587,
+      "baseline_response_time": 5.285998106002808,
+      "winner": "rag",
+      "improvement_score": 0.9198113207547169
+    },
+    {
+      "question": {
+        "question": "KubeSphere如何实现告警通知的？详细说明其架构和工作原理。",
+        "category": "可观测性",
+        "expected_knowledge": "Notification Manager架构、CRD定义、多租户通知机制",
+        "difficulty": "困难",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere 实现告警通知的架构和工作原理主要依赖于以下几个组件和步骤：\n\n1. **多租户通知功能**：\n   - 根据文档1的描述，KubeSphere 支持多租户通知功能，允许每个租户定制自己的通知渠道，用于接收租户有权限访问的 Namespace 下的通知消息。此外，还可以设置全局的通知渠道用于接收全部的通知消息，包括所有租户的通知消息和平台级的通知消息。\n\n2. **Notification Manager**：\n   - Notification Manager 是 KubeSphere 可观测团队开源的一款 Kubernetes 平台上的多租户通知管理系统，如文档1所述，它从 Alertmanager 接收告警消息，并根据告警消息的租户标签（如 namespace）将告警消息发送到对应的通知渠道。\n\n3. **告警消息的分发**：\n   - Notification Manager 根据告警消息中的租户标签，如 namespace，将告警消息分发到正确的通知渠道。这一过程确保了不同租户只能接收到他们有权限访问的通知消息。\n\n4. **支持的通知渠道**：\n   - 根据文档1，Notification Manager 支持多种通知渠道，包括 DingTalk，Email，Slack，WeCom，Webhook，以及短信平台（阿里、腾讯，华为）等。\n\n5. **告警系统重构**：\n   - 文档5提到，KubeSphere v3.1.x 版本重构了告警系统，并提供了兼容 Prometheus 格式的告警设置。这意味着 KubeSphere 可以更好地与 Prometheus 集成，从而实现告警数据的收集和处理。\n\n6. **告警设置**：\n   - 用户可以在 KubeSphere 中设置告警规则，当特定的监控指标达到预设的阈值时，系统会触发告警并通过 Notification Manager 发送告警消息到配置的通知渠道。\n\n综上所述，KubeSphere 实现告警通知的架构和工作原理涵盖了多租户通知功能、Notification Manager 的告警消息处理和分发、以及对多种通知渠道的支持。通过这种架构，KubeSphere 能够确保告警信息能够及时、准确地送达至相关租户，同时保持了系统的灵活性和扩展性。",
+      "baseline_answer": "您好，根据您的问题，您想了解的是KubeSphere如何实现告警通知的架构和工作原理。根据您提供的文档内容，以下是对KubeSphere告警通知功能的详细说明：\n\n### KubeSphere告警通知架构\n\nKubeSphere的告警通知功能主要基于以下组件实现：\n\n1. **Prometheus**：用于数据收集和监控指标的存储。\n2. **Alertmanager**：负责处理告警事件和通知。\n3. **Notification Manager**：KubeSphere特有的组件，用于统一管理各种通知渠道。\n4. **集成第三方通知服务**：如邮件、短信、企业微信等。\n\n### KubeSphere告警通知工作原理\n\n1. **数据收集**：\n   - Prometheus作为监控数据收集的核心，它会周期性地从Kubernetes集群中的各个节点和应用中拉取监控指标。\n\n2. **告警规则配置**：\n   - 用户可以在KubeSphere控制台中配置告警规则，这些规则定义了触发告警的条件。\n\n3. **告警事件生成**：\n   - 当Prometheus检测到指标满足告警规则时，会生成告警事件。\n\n4. **告警事件处理**：\n   - Alertmanager接收到告警事件后，根据配置的路由和抑制规则，决定是否发送通知。\n\n5. **通知发送**：\n   - Notification Manager负责整合各种通知渠道，将告警信息通过邮件、短信、企业微信等多种方式发送给相关人员。\n\n6. **告警管理与通知历史**：\n   - 用户可以在KubeSphere控制台查看告警历史和通知记录，方便跟踪和管理告警事件。\n\n以上就是KubeSphere实现告警通知的架构和工作原理的详细说明。如果您有其他问题或需要更多信息，请告知。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8666666666666667,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8340000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.92
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.45400000000000007,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.6441739130434783,
+        "confidence": 0.9686351119438289,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 19.462475776672363,
+      "baseline_response_time": 7.975835084915161,
+      "winner": "rag",
+      "improvement_score": 0.8370044052863435
+    },
+    {
+      "question": {
+        "question": "如何在ARM版麒麟V10上部署KubeSphere？",
+        "category": "部署安装",
+        "expected_knowledge": "ARM环境下KubeSphere部署流程和注意事项",
+        "difficulty": "困难",
+        "ground_truth": null
+      },
+      "rag_answer": "要在ARM版的麒麟V10上部署KubeSphere，可以遵循以下步骤：\n\n1. **选择部署工具**：\n   - 使用KubeSphere开发的KubeKey工具实现自动化部署。KubeKey是一个用于部署Kubernetes和KubeSphere的工具，支持多种架构，包括ARM架构。\n\n2. **准备服务器环境**：\n   - 文档中提到了在三台麒麟V10 aarch64架构服务器上部署高可用模式的Kubernetes集群和KubeSphere。\n   - 确保服务器芯片为Kunpeng-920，操作系统为麒麟V10 SP2或SP3，且为aarch64架构。\n\n3. **安装基础依赖**：\n   - 安装Docker，文档中提到的版本是24.0.7。\n   - 安装Harbor，用于存储和管理Docker镜像，版本为v2.7.1。\n\n4. **制作离线安装包**（可选）：\n   - 如果在没有联网的环境中部署，可以使用联网主机制作离线包，包括基础依赖、所需的Docker镜像和Harbor，以及KubeKey部署KubeSphere所需的各类包。\n\n5. **配置KubeKey并开始部署**：\n   - 使用KubeKey v3.0.13版本来部署KubeSphere 3.4.0和Kubernetes 1.26.5。\n   - 根据文档中的指南，编写shell脚本来自动化部署过程，实现离线环境安装Kubernetes和KubeSphere。\n\n6. **处理架构差异**：\n   - 注意KubeSphere和Kubernetes在ARM架构和x86架构的服务器上部署的主要区别在于所有服务使用的容器镜像架构类型不同。\n   - KubeSphere开源版对ARM架构的默认支持可以实现KubeSphere-Core功能，即可以实现最小化的KubeSphere和完整的Kubernetes集群部署。\n\n7. **处理部署中的问题**：\n   - 当启用KubeSphere可插拔组件时，可能会遇到个别组件部署失败的情况，需要手工替换官方或第三方提供的ARM版镜像或根据官方源码手工构建ARM版镜像。\n\n综上所述，ARM版的麒麟V10上部署KubeSphere主要依赖于KubeKey工具，同时需要注意服务器环境的配置、基础依赖的安装，以及在ARM架构上的特殊处理。通过以上步骤，可以实现KubeSphere在麒麟V10上的成功部署。",
+      "baseline_answer": "您好！根据您提到的问题，我注意到您需要了解如何在ARM版的麒麟V10操作系统上部署KubeSphere。遗憾的是，您没有提供相关的文档供我分析和回答。为了帮助您解答这个问题，我建议如下：\n\n1. **提供相关文档**：如果您有关于ARM版麒麟V10操作系统和KubeSphere部署的文档，请上传这些文档。这样我就可以基于文档内容为您提供具体的步骤和指导。\n\n2. **参考官方文档**：通常来说，部署KubeSphere这类的容器平台会有官方的文档或者社区提供的指南。您可以参考KubeSphere的[官方文档](https://kubesphere.com.cn/docs/)来获取如何在不同环境下部署KubeSphere的指导。\n\n3. **搜索社区资源**：对于特定的操作系统和部署环境，社区论坛和问答平台可能会有经验丰富的用户分享他们的部署经验。您可以在如Stack Overflow、Reddit等平台上搜索“ARM版麒麟V10上部署KubeSphere”的相关讨论。\n\n4. **联系技术支持**：如果您在部署过程中遇到了具体的技术难题，可以考虑联系KubeSphere的技术支持或者社区寻求帮助。\n\n如果您能提供更多具体的文档或者详细信息，我将能够为您提供更加精确的建议和解决方案。期待您的回复，以便我能更好地协助您。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.7302325581395349,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.7930697674418605,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.838139534883721
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.5272727272727272,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.37218181818181817,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.34363636363636363
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9233333333333335,
+        "confidence": 0.9636700683814455,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 22.18516993522644,
+      "baseline_response_time": 7.890320062637329,
+      "winner": "rag",
+      "improvement_score": 1.1308664977675784
+    },
+    {
+      "question": {
+        "question": "Notification Manager是如何实现多租户通知管理的？",
+        "category": "架构设计",
+        "expected_knowledge": "多租户架构、Config和Receiver分离模式、标签选择机制",
+        "difficulty": "困难",
+        "ground_truth": null
+      },
+      "rag_answer": "Notification Manager 实现多租户通知管理的方式主要通过以下几个方面：\n\n1. **发送配置与接收配置分离**：Notification Manager 采用 Config 来定义发送配置，使用 Receiver 定义接收配置。通过这种方式，可以灵活地将发送和接收配置分开处理，以适应不同的租户需求。\n\n2. **标签选择器**：Receiver 通过标签选择器选择发送通知需要使用的发送配置。这种方式允许租户级别的配置被正确地应用到相应的通知中。\n\n3. **全局与租户类型区分**：Config 和 Receiver 分为全局和租户两种类型，并通过标签进行区分。具体标签包括：\n   - `type: global`：全局 Receiver\n   - `type: default`：全局 Config\n   - `type: tenant`：租户 Receiver 或 Config\n   - 全局 Receiver 只能使用全局的 Config，而租户 Receiver 可以通过标签选择器选择租户定义的租户 Config。如果未定义标签选择器或未找到 Config，则使用全局 Config。\n\n4. **CRD 管理和配置**：Notification Manager 通过自定义资源定义（CRD）进行管理和配置。这些 CRD 包括 NotificationManager、Config 和 Receiver，它们共同作用于通知渠道的管理。\n\n5. **动态更新**：当 CRD 发生变更时，系统会重载 CRD 以更新配置信息，实现通知渠道的动态更新。\n\n6. **多租户日志管理和通知**：KubeSphere 支持多租户日志管理，实现不同租户日志分权分域，每个租户只能查询自己有权限访问的 Namespace 下的容器的日志。同时，每个租户都可以定制自己的通知渠道，用于接收租户有权限访问的 Namespace 下的通知消息。此外，还可以设置全局的通知渠道用于接收全部的通知消息，包括所有租户的通知消息和平台级的通知消息。\n\n7. **API 获取待通知租户列表**：Notification Manager 支持通过 API 获取待通知租户列表，用户可以自己实现获取待通知租户列表的逻辑，并通过 sidecar 的方式注入到 Notification Manager Deployment 供 Notification Manager 调用。\n\n通过上述机制，Notification Manager 能够灵活地处理多租户环境下的通知管理，确保每个租户都能接收到正确的通知消息。",
+      "baseline_answer": "您好！根据您提出的问题“Notification Manager是如何实现多租户通知管理的？”，由于您没有提供相关的文档内容，我无法提供具体的回答。但是，我可以为您提供一般性的指导。\n\n在技术领域，多租户通知管理通常涉及以下几个关键方面：\n\n1. **租户隔离**：确保不同租户的通知数据在存储、处理和传输过程中保持隔离，以保护数据安全和隐私。\n\n2. **配置管理**：为每个租户提供独立的配置选项，以满足其特定的通知发送需求和偏好。\n\n3. **资源分配**：合理分配计算和存储资源给不同租户，以确保服务的响应性和性能。\n\n4. **API和接口**：提供专门设计的API和接口，使得各个租户可以根据自己的需求发送和管理通知。\n\n5. **监控和日志**：实施监控系统来跟踪通知发送状态，并记录日志以便于问题排查和性能优化。\n\n6. **安全性**：确保所有的通知传输过程都是安全的，使用加密技术和认证机制来保护数据。\n\n如果您有关于Notification Manager的具体文档或上下文信息，您可以上传文档，我将能够提供更具体的分析和答案。如果您需要进一步的帮助或有其他问题，请随时告知。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8666666666666667,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8340000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.92
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8666666666666667,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.4740000000000001,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.13999999999999996
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9028571428571428,
+        "confidence": 0.9512860696539404,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果缺乏文档多样性"
+        ],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 20.608952045440674,
+      "baseline_response_time": 5.032809019088745,
+      "winner": "rag",
+      "improvement_score": 0.7594936708860758
+    }
+  ]
+}

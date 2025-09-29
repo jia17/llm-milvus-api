@@ -1,0 +1,25 @@
+{
+  "session_id": "536fa4d0-fa40-4361-9f8b-1268a89dff48",
+  "title": "对话 09-14 00:21",
+  "created_at": "2025-09-13T16:21:47.662125+00:00",
+  "updated_at": "2025-09-13T16:22:05.763570+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "KubeSphere  是什么",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "KubeSphere 是一个以 Kubernetes 为基础的开源容器平台，它提供了一个全面的功能集合，用于构建、部署和管理容器化应用程序。KubeSphere 旨在简化 Kubernetes 的使用，并为开发者和运维团队提供更友好的界面和更丰富的功能，以便于在 Kubernetes 上进行开发、部署、监控和日志管理等操作。\n\n根据提供的文档内容，KubeSphere 有几个显著的特点：\n\n1. **KubeSphere API 概念**：KubeSphere API 是 Kubernetes API 的超集，沿用了 Kubernetes API 的设计，通过 HTTP 提供了基于资源的 RESTful 编程接口。它支持使用标准 HTTP 动词（POST、PUT、PATCH、DELETE、GET）来操作资源。\n\n2. **扩展机制**：KubeSphere 4.0 版本引入了全新的微内核架构，代号为 LuBan。这个架构允许前后端功能的动态扩展。KubeSphere 的核心组件被精简为 `ks-core`，使得默认安装的 KubeSphere 更加轻量。KubeSphere 已有的众多组件都被拆分为单独的 KubeSphere 扩展组件，这些扩展组件可以单独迭代，用户可以自行选择安装哪些扩展组件，以打造符合其需求的容器管理平台。\n\n3. **K8s API 代理**：KubeSphere 提供了 Kubernetes API 的代理，通过 `apis`、`api` 前缀可以直接访问 Kubernetes 的 API。此外，KubeSphere 在 Kubernetes 的基础上支持额外的资源层级，包括平台级资源（例如用户、集群、企业空间等）和企业空间级资源。\n\n4. **高度可配置和可扩展**：KubeSphere 构建在 Kubernetes 之上，具备高度可配置和可扩展的特性，可以借助 Kubernetes 的扩展机制来扩展平台能力。\n\n综上所述，KubeSphere 是一个功能丰富的 Kubernetes 平台，提供了易于使用的界面和强大的扩展能力，帮助用户更好地管理和操作 Kubernetes 集群。",
+      "metadata": {
+        "sources_count": 5,
+        "mode": "rag"
+      }
+    }
+  ],
+  "metadata": {
+    "user_id": "anonymous"
+  },
+  "compressed": false
+}

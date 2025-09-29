@@ -1,0 +1,1232 @@
+{
+  "overall_evaluation": {
+    "total_questions": 26,
+    "rag_wins": 8,
+    "baseline_wins": 1,
+    "ties": 17,
+    "avg_rag_score": 0.5043931893602818,
+    "avg_baseline_score": 0.406036286790133,
+    "avg_improvement": 0.23491404229167878,
+    "category_performance": {
+      "可观测性": {
+        "win_rate": 0.8,
+        "avg_rag_score": 0.7032447204968946,
+        "avg_baseline_score": 0.41040219780219783,
+        "avg_improvement": 0.7141478237243152,
+        "total_questions": 5
+      },
+      "部署安装": {
+        "win_rate": 0.0,
+        "avg_rag_score": 0.37720000000000004,
+        "avg_baseline_score": 0.37720000000000004,
+        "avg_improvement": 0.0,
+        "total_questions": 5
+      },
+      "架构设计": {
+        "win_rate": 0.0,
+        "avg_rag_score": 0.37720000000000004,
+        "avg_baseline_score": 0.37720000000000004,
+        "avg_improvement": 0.0,
+        "total_questions": 4
+      },
+      "通知管理": {
+        "win_rate": 0.0,
+        "avg_rag_score": 0.37720000000000004,
+        "avg_baseline_score": 0.37720000000000004,
+        "avg_improvement": 0.0,
+        "total_questions": 4
+      },
+      "故障排除": {
+        "win_rate": 0.0,
+        "avg_rag_score": 0.37720000000000004,
+        "avg_baseline_score": 0.37720000000000004,
+        "avg_improvement": 0.0,
+        "total_questions": 4
+      },
+      "配置管理": {
+        "win_rate": 1.0,
+        "avg_rag_score": 0.7963998302207131,
+        "avg_baseline_score": 0.5231331168831168,
+        "avg_improvement": 0.6342564952405184,
+        "total_questions": 4
+      }
+    },
+    "performance_summary": {
+      "rag_win_rate": 0.3076923076923077,
+      "avg_improvement_percentage": 23.491404229167877,
+      "best_category": "配置管理",
+      "worst_category": "部署安装",
+      "overall_conclusion": "RAG系统表现不如基线模型，需要优化"
+    }
+  },
+  "detailed_results": [
+    {
+      "question": {
+        "question": "KubeSphere中的日志收集是如何实现的？",
+        "category": "可观测性",
+        "expected_knowledge": "KubeSphere日志收集架构和实现方式",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere的日志收集通过Fluent Bit组件实现。Fluent Bit作为DaemonSet部署在集群中，负责从各个节点收集容器日志、系统日志等。收集的日志会被转发到Elasticsearch或其他日志存储系统中。KubeSphere提供了统一的日志查询界面，支持多种过滤条件，包括项目、工作负载、容器等维度的日志检索和分析。",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere中的日志收集是通过Fluent Bit实现的。具体来说，文档1中提到：“KubeSphere的日志收集是通过Fluent Bit实现的，Fluent Bit将Pod日志收集到Elasticsearch集群，KubeSphere通过查询Elasticsearch集群实现日志检索。”此外，文档3进一步解释了Fluent Bit的工作原理：“Fluent Bit会将日志收集到Elasticsearch集群中进行持久化，日志会按照每天一个分片进行存储。” 这意味着KubeSphere利用Fluent Bit将容器日志从Pods中收集起来，并存储到Elasticsearch集群中，以便进行后续的日志管理和查询。同时，KubeSphere还支持配置日志的保存周期，并允许将日志输出到Kafka和Fluentd，提供了丰富的日志查询方式，包括容器的元数据信息。",
+      "baseline_answer": "您的问题涉及的是KubeSphere中的日志收集实现方式。根据您提供的提示，我这里没有相关的文档内容来直接回答您的问题。因此，我将根据我所知的通用知识来解释KubeSphere中日志收集的一般实现方式。\n\nKubeSphere 是一个开源的多租户容器管理平台，它基于 Kubernetes 进行扩展，以提供全面的 DevOps 功能和多租户管理。在 Kubernetes 集群中，日志收集通常涉及以下几个步骤：\n\n1. **日志生成**：容器内的应用程序会生成日志，这些日志默认会被存储在容器的文件系统中。\n\n2. **日志收集**：KubeSphere 可以使用 Fluentd、Logstash 或其他日志收集器来收集这些日志。这些日志收集器可以作为 DaemonSet 在集群中的每个节点上运行，以便收集所有节点上的容器日志。\n\n3. **日志存储**：收集到的日志可以存储在多种存储后端中，如 Elasticsearch、Kafka 或者传统的存储系统如文件服务器。KubeSphere 支持集成 Elasticsearch 作为日志存储解决方案。\n\n4. **日志查询与分析**：KubeSphere 通常提供一个图形界面，允许用户查询和分析存储的日志。用户可以通过 KubeSphere 的 UI 查看日志，或者使用 KubeSphere 的 API 进行日志查询。\n\n5. **日志可视化**：KubeSphere 也可能提供日志可视化工具，如 Kibana，它与 Elasticsearch 结合使用，为用户提供一个强大的日志分析和可视化平台。\n\n6. **日志监控和告警**：KubeSphere 可以配置基于日志的监控和告警规则，以便在检测到特定日志模式或错误时通知用户。\n\n请注意，具体的实现细节可能会根据 KubeSphere 版本和配置有所不同。如果您需要更详细的信息，建议查看 KubeSphere 的官方文档或者社区论坛，在那里您可以找到最新的信息和最佳实践。如果您有具体的 KubeSphere 相关的文档或资源需要我查阅，请上传文件，我会根据文件内容给出更准确的回答。",
+      "rag_quality": {
+        "faithfulness_score": 0.7891304347826087,
+        "consistency_score": 0.8666666666666667,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.7496521739130436,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.9534782608695652
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.7512820512820513,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.4393846153846154,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.20923076923076922
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9239999999999998,
+        "confidence": 0.9468941092855064,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 13.352783918380737,
+      "baseline_response_time": 7.573479175567627,
+      "winner": "rag",
+      "improvement_score": 0.7061411521130195
+    },
+    {
+      "question": {
+        "question": "什么是KubeSphere的可观测性三大支柱？",
+        "category": "可观测性",
+        "expected_knowledge": "监控、日志、链路追踪三大支柱的概念",
+        "difficulty": "简单",
+        "ground_truth_answer": "KubeSphere的可观测性基于三大支柱：1) 监控(Monitoring) - 通过Prometheus收集集群、节点、工作负载等各层面的监控指标；2) 日志(Logging) - 通过Fluent Bit收集和聚合容器日志、审计日志等；3) 链路追踪(Tracing) - 支持分布式链路追踪，帮助定位微服务调用链中的性能瓶颈。这三者结合为用户提供全方位的系统可观测能力。",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere的可观测性三大支柱包括监控、日志和追踪。这一信息来自于文档4中对可观测性的定义：“可观测性是容器云平台非常关键的一环，狭义上主要包含监控、日志和追踪等。” 这三大支柱共同构成了KubeSphere在可观测性方面的基础，帮助运维人员对Kubernetes集群进行有效的监控和管理。具体来说：\n\n1. **监控**：监控是指对系统的性能和状态进行实时跟踪，以便及时发现问题。在KubeSphere中，可以通过集成的监控工具如Prometheus和Grafana等来实现对集群资源和应用性能的监控。\n\n2. **日志**：日志是指系统和应用程序产生的文本记录，它们记录了系统的运行情况和发生的事件。KubeSphere提供了日志收集和查询功能，帮助用户快速定位和分析问题。\n\n3. **追踪**：追踪是指对系统中各个组件之间的调用和数据流进行跟踪，以便于理解和分析系统的行为。KubeSphere支持如Jaeger等分布式追踪系统，帮助用户梳理微服务之间的调用关系，定位性能瓶颈和异常。\n\n这三大支柱共同为KubeSphere用户提供了一个全面的可观测性解决方案，使得云原生应用的运维变得更加高效和直观。",
+      "baseline_answer": "您好，根据您提供的提示，我可以回答您关于KubeSphere的可观测性三大支柱的问题。KubeSphere的可观测性三大支柱包括：\n\n1. **监控（Monitoring）**：KubeSphere内置了监控功能，可以收集和展示集群、节点、容器、Pod等资源的运行数据，帮助用户实时监控集群状态。\n\n2. **日志（Logging）**：KubeSphere集成了日志收集和分析工具，可以集中管理和查询容器、应用及其它组件产生的日志，实现日志的统一存储、分析和可视化。\n\n3. **服务网格（Service Mesh）**：通过集成Istio等服务网格技术，KubeSphere提供了细粒度的服务监控和流量控制能力，增强了微服务架构下的可观测性和可靠性。\n\nKubeSphere通过这三个支柱构建了一套完整的可观测性解决方案，帮助用户更好地管理、监控和诊断Kubernetes集群。希望这个回答能够解决您的问题。如果您有其他关于KubeSphere的疑问，欢迎继续提问。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8140000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.4,
+        "overall_score": 0.4,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.575200746965453,
+        "confidence": 0.952267761988156,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 14.282972812652588,
+      "baseline_response_time": 3.9925498962402344,
+      "winner": "rag",
+      "improvement_score": 1.035
+    },
+    {
+      "question": {
+        "question": "KubeSphere如何实现告警通知的？详细说明其架构和工作原理。",
+        "category": "可观测性",
+        "expected_knowledge": "Notification Manager架构、CRD定义、多租户通知机制",
+        "difficulty": "困难",
+        "ground_truth_answer": "KubeSphere通过Notification Manager实现告警通知。架构核心包括三个CRD：1) NotificationManager - 配置全局参数如镜像、副本数等；2) Config - 定义发送方配置，如邮件服务器、企业微信应用信息等；3) Receiver - 定义接收方信息，如邮件地址、微信群等。工作原理：Notification Manager监控CRD变更并动态重载配置，采用发送配置与接收配置分离的模式，支持全局和租户两种类型。告警消息根据namespace标签路由到相应Receiver，实现多租户通知隔离。",
+        "ground_truth": null
+      },
+      "rag_answer": "KubeSphere 实现告警通知的架构和工作原理主要涉及以下几个关键组件：\n\n1. **多租户通知功能**：\n   根据文档1，KubeSphere 支持多租户通知功能，允许每个租户定制自己的通知渠道，用于接收租户有权限访问的 Namespace 下的通知消息。同时，还可以设置全局的通知渠道，用于接收全部的通知消息，包括所有租户的通知消息和平台级的通知消息。\n\n2. **Notification Manager**：\n   KubeSphere 的通知功能是通过 Notification Manager 实现的，这是 KubeSphere 可观测团队开源的一款 Kubernetes 平台上的多租户通知管理系统。Notification Manager 从 Alertmanager 接收告警消息，并根据告警消息的租户标签（如 namespace）将告警消息发送到对应的通知渠道。\n\n3. **Alertmanager**：\n   Alertmanager 是 Prometheus 生态系统中的一个组件，负责处理告警消息。在 KubeSphere 的架构中，Alertmanager 负责接收来自监控系统的告警，并将其传递给 Notification Manager。\n\n4. **通知渠道**：\n   Notification Manager 支持多种通知渠道，包括 DingTalk、Email、Slack、WeCom、Webhook、短信平台（阿里、腾讯，华为）等，使得用户可以根据需要选择适合的通知方式。\n\n5. **告警设置**：\n   根据文档5，KubeSphere v3.1.x 版本新增了兼容 Prometheus 格式的告警设置，这意味着用户可以利用 Prometheus 的告警规则来配置告警，并将这些告警通过 Alertmanager 和 Notification Manager 发送到指定的通知渠道。\n\n综上所述，KubeSphere 实现告警通知的工作原理可以概括为：监控系统产生告警后，告警信息被传递给 Alertmanager，Alertmanager 将告警信息传递给 Notification Manager，Notification Manager 根据告警消息中的租户标签将告警信息发送到相应的通知渠道，最终用户通过设定的通知渠道接收到告警信息。这样的架构设计使得 KubeSphere 能够灵活地处理多租户环境下的告警通知，同时保证了告警信息的及时性和准确性。",
+      "baseline_answer": "由于您的问题提到了“KubeSphere如何实现告警通知的”，但并没有提供与此相关的文档内容，因此我无法直接回答您的问题。不过，我可以提供一个关于KubeSphere告警通知功能的概述，以及其通常的架构和工作原理的一般性解释。\n\n### KubeSphere告警通知概述\n\nKubeSphere是一款以Kubernetes为基础的开源容器平台，提供了丰富的功能，包括多租户管理、DevOps、微服务治理、监控与日志收集等。在监控与日志收集方面，KubeSphere集成了Prometheus和Grafana等工具，用于监控集群和应用的性能指标，并通过告警机制通知用户潜在的问题。\n\n### 架构\n\nKubeSphere的告警通知架构通常包括以下几个组件：\n\n1. **监控数据收集**：KubeSphere通过集成的Prometheus服务器收集集群和应用的监控数据。\n2. **告警规则定义**：用户可以在KubeSphere中定义一系列的告警规则，这些规则基于监控数据触发告警。\n3. **告警触发与通知**：当监控数据满足预定义的告警规则时，系统会触发告警事件，并通过配置的通知渠道发送通知。\n4. **通知渠道**：KubeSphere支持多种通知渠道，如邮件、Slack、Webhook等。\n\n### 工作原理\n\n1. **数据收集**：Prometheus定期抓取指标数据。\n2. **规则评估**：Prometheus根据定义的告警规则评估收集到的数据。\n3. **告警生成**：当数据满足规则条件时，生成告警事件。\n4. **告警通知**：告警事件通过KubeSphere的告警系统发送到预定义的通知渠道。\n5. **用户响应**：用户接收到告警通知后，可以查看相关监控数据并采取相应措施。\n\n请注意，这是一个通用的解释，具体的实现细节可能会根据KubeSphere的不同版本有所变化。如果您需要更详细的信息，建议您查阅KubeSphere的官方文档或直接咨询KubeSphere的技术支持。如果您有相关的文档需要我阅读，请上传文档，我将为您提供更准确的答案。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8140000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.7595238095238095,
+        "completeness_score": 0.4,
+        "overall_score": 0.38785714285714284,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.2042857142857143
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.6441739130434783,
+        "confidence": 0.9686351119438289,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 16.983144998550415,
+      "baseline_response_time": 8.100406169891357,
+      "winner": "rag",
+      "improvement_score": 1.0987108655616944
+    },
+    {
+      "question": {
+        "question": "在KubeSphere中如何配置邮件告警通知？",
+        "category": "可观测性",
+        "expected_knowledge": "邮件通知配置步骤、Config和Receiver的使用",
+        "difficulty": "中等",
+        "ground_truth_answer": "配置邮件告警通知需要两个步骤：1) 创建Config资源定义邮件发送配置，包括SMTP服务器地址、端口、用户名密码等；2) 创建Receiver资源定义邮件接收配置，指定收件人邮箱地址。Config和Receiver通过标签选择器关联。管理员可以设置全局的Email Config，租户只需配置具体的接收邮箱即可完成邮件通知配置。",
+        "ground_truth": null
+      },
+      "rag_answer": "在KubeSphere中配置邮件告警通知，可以参考以下步骤：\n\n1. **使用Notification Manager定义CRD**：\n   - 根据文档2和文档3的描述，Notification Manager通过定义CRD（Custom Resource Definitions）来实现通知渠道的动态更新和管理。这包括配置Webhook、发送通知所需的配置、全局接收者、默认配置选择器、租户标签、租户级接收者选择器以及通知渠道的全局配置。\n\n2. **配置邮件发送服务器设置**：\n   - 在Notification Manager中，你需要定义一个`Config` CRD，用于配置邮件发送服务器的设置。这可能包括SMTP服务器地址、端口、认证信息等。\n\n3. **定义邮件接收者信息**：\n   - 接着，你需要定义一个`Receiver` CRD，用于定义邮件通知的接收者信息，即邮件接收人的邮箱地址。\n\n4. **设置全局和租户级接收者**：\n   - 根据文档3，Notification Manager支持多租户通知。管理员可以设置全局的Email Config，而租户只需要配置接收邮箱即可完成邮件通知配置。Notification Manager会根据通知消息的namespace标签将通知发送到相应的Receiver。\n\n5. **配置告警触发条件**：\n   - 在KubeSphere中，用户可以基于预置规则模板（如CPU、内存等）或使用PromQL语句自定义告警规则。例如，可以定义当CoreDNS CPU用量大于等于0.1Core时触发告警，如文档1所述。\n\n6. **查看告警消息和通知历史**：\n   - 一旦告警触发，用户可以在告警消息和通知历史处查看到相应的条目，并且会收到一封告警邮件，如文档1所述。\n\n7. **集成邮件通知**：\n   - 通过上述配置，当告警条件满足时，KubeSphere可以自动发送邮件通知给预设的接收者。\n\n综上所述，配置邮件告警通知涉及在Notification Manager中定义相关的CRD，配置邮件发送和接收方信息，并设置告警触发条件。这样，当告警触发时，KubeSphere就能通过邮件发送告警通知给指定的接收者。",
+      "baseline_answer": "很抱歉，根据您提供的这段话，由于没有具体的文档内容，我无法提供关于在KubeSphere中如何配置邮件告警通知的具体步骤或方法。但是，如果您有关于KubeSphere的文档或其他资源，您可以通过上传文档的方式让我帮助您查找相关信息。\n\n通常来说，在Kubernetes或类似的平台中配置邮件告警通知，可能需要以下步骤：\n\n1. **邮件服务配置**：首先需要配置SMTP服务器，这包括邮件服务器的地址、端口、认证信息等。\n\n2. **告警规则设置**：在KubeSphere或其他平台中设置告警规则，定义何时触发邮件通知。\n\n3. **模板定制**：创建邮件模板，定义邮件的标题、内容格式等。\n\n4. **测试邮件**：在配置完成后，发送测试邮件以确保配置正确。\n\n5. **集成测试**：确保整个告警系统可以正常工作，邮件能被正确发送和接收。\n\n如果您有相关的文档或资源，可以上传文件，我将根据文件内容给出更具体的指导。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.7285714285714285,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.7925714285714286,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.8371428571428572
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.7025641025641025,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.4247692307692308,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.23846153846153847
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.738007326007326,
+        "confidence": 0.9619665876530733,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 17.295236825942993,
+      "baseline_response_time": 4.188671112060547,
+      "winner": "rag",
+      "improvement_score": 0.8658871009468618
+    },
+    {
+      "question": {
+        "question": "KubeSphere的日志和告警功能对于DevOps有什么价值？",
+        "category": "可观测性",
+        "expected_knowledge": "可观测性在DevOps流程中的作用和价值",
+        "difficulty": "中等",
+        "ground_truth_answer": "日志和告警功能是DevOps流程中的关键组成部分：1) 及时发现问题 - 告警通知帮助运维团队第一时间发现系统异常；2) 快速定位问题 - 统一的日志收集和查询功能让问题排查更高效；3) 持续改进 - 通过日志分析识别系统瓶颈和优化点；4) 责任明确 - 支持多租户的通知机制确保问题能准确通知到责任人；5) 降低运维成本 - 自动化的监控告警减少人工巡检工作量。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: The read operation timed out",
+      "baseline_answer": "您好！根据您提出的问题，我将直接回答您关于KubeSphere的日志和告警功能对于DevOps的价值：\n\n1. **增强监控能力**：“KubeSphere的日志和告警功能”可以帮助DevOps团队实现对应用和基础设施的实时监控。通过日志管理，可以追踪应用的运行状态和性能指标，及时发现和定位问题。\n\n2. **提高响应速度**：告警功能使得DevOps团队能够在出现异常或故障时迅速响应。系统可以根据预设的条件自动触发告警，减少人工干预，提高处理效率。\n\n3. **优化运维管理**：日志可以帮助DevOps团队分析应用的使用情况和性能瓶颈，进而优化配置和资源分配，提高整体的运维管理效率。\n\n4. **支持故障排查**：在开发和部署过程中，日志提供了详细的操作记录和错误信息，有助于快速定位问题源头，减少故障排查的时间。\n\n5. **提升安全性**：通过监控和告警，可以及时发现安全威胁和异常行为，加强应用的安全性。\n\n6. **促进持续改进**：日志和告警数据可以为DevOps团队提供反馈，帮助他们不断改进开发流程和应用性能。\n\n7. **强化团队协作**：日志和告警功能可以作为团队成员之间沟通的桥梁，共享问题信息和解决方案，从而加强团队协作。\n\n以上就是KubeSphere的日志和告警功能对于DevOps的一些主要价值。希望这些信息对您有所帮助。如果您有其他问题或需要更详细的信息，请随时告知。",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.22000000000000003,
+        "overall_score": 0.34600000000000003,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.4,
+        "overall_score": 0.4,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7,
+        "confidence": 0.9632294901687516,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 36497.23323702812,
+      "baseline_response_time": 6.311304807662964,
+      "winner": "baseline",
+      "improvement_score": -0.13499999999999998
+    },
+    {
+      "question": {
+        "question": "如何在ARM版麒麟V10上部署KubeSphere？",
+        "category": "部署安装",
+        "expected_knowledge": "ARM环境下KubeSphere部署流程和注意事项",
+        "difficulty": "困难",
+        "ground_truth_answer": "在ARM版麒麟V10上部署KubeSphere需要以下步骤：1) 系统准备：配置LVM存储，创建PV、VG、LV并挂载到/data目录；2) 下载KubeKey：使用KubeKey v3.0.13版本，支持ARM架构；3) 配置集群：创建集群配置文件，指定ARM节点信息；4) 存储配置：由于KubeKey不支持自定义Containerd数据目录，需要通过软链接方式将/var/lib/containerd链接到/data/containerd；5) 执行部署：运行kk create cluster命令进行自动化部署。整个过程需要注意ARM架构的兼容性和存储路径配置。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9233333333333335,
+        "confidence": 0.9636700683814455,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 5962.418106079102,
+      "baseline_response_time": 758.9014446735382,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "使用KubeKey部署KubeSphere的优势是什么？",
+        "category": "部署安装",
+        "expected_knowledge": "KubeKey工具的特点和优势",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeKey是KubeSphere官方的部署工具，具有以下优势：1) 一键部署 - 同时安装Kubernetes和KubeSphere，简化部署流程；2) 多架构支持 - 支持AMD64和ARM64架构；3) 高可用支持 - 自动配置多Master节点的高可用集群；4) 可扩展性 - 支持集群节点的动态添加和删除；5) 配置灵活 - 通过YAML文件灵活配置集群参数；6) 离线部署 - 支持离线环境部署；7) 版本管理 - 支持Kubernetes和KubeSphere版本的统一管理和升级。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7733333333333333,
+        "confidence": 0.9476821342838911,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2011.8398249149323,
+      "baseline_response_time": 3.0690181255340576,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere部署过程中如何配置存储？详细说明LVM配置步骤。",
+        "category": "部署安装",
+        "expected_knowledge": "LVM配置、PV、VG、LV创建和挂载过程",
+        "difficulty": "困难",
+        "ground_truth_answer": "LVM存储配置步骤如下：1) 创建物理卷：pvcreate /dev/vdb；2) 创建卷组：vgcreate data /dev/vdb；3) 创建逻辑卷：lvcreate -l 100%VG data -n lvdata（使用所有空间）；4) 格式化：mkfs.xfs /dev/mapper/data-lvdata；5) 创建挂载点：mkdir /data；6) 挂载：mount /dev/mapper/data-lvdata /data；7) 设置自动挂载：在/etc/fstab中添加挂载配置；8) 创建软链接：ln -s /data/containerd /var/lib/containerd，解决KubeKey不支持自定义Containerd数据目录的问题。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7767272727272727,
+        "confidence": 0.9661722521150317,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 2659.5463330745697,
+      "baseline_response_time": 903.8695158958435,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere最小化部署需要哪些系统资源？",
+        "category": "部署安装",
+        "expected_knowledge": "CPU、内存、磁盘等资源需求",
+        "difficulty": "简单",
+        "ground_truth_answer": "KubeSphere最小化部署的系统资源需求：1) CPU：至少4核（推荐8核）；2) 内存：至少8GB（推荐16GB）；3) 磁盘：系统盘至少40GB，数据盘至少100GB；4) 网络：各节点间网络互通，开放相应端口；5) 操作系统：支持Ubuntu 16.04+、CentOS 7.x+、RHEL 7.x+等Linux发行版。对于生产环境，建议使用更高配置以确保系统稳定运行。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7254978354978354,
+        "confidence": 0.9579628166370447,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 1725.0357780456543,
+      "baseline_response_time": 909.9538280963898,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere高可用集群部署的架构是怎样的？",
+        "category": "部署安装",
+        "expected_knowledge": "多节点集群架构、Master节点配置",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere高可用集群架构包括：1) Master节点：至少3个奇数个Master节点，运行Kubernetes控制平面组件和KubeSphere控制器；2) Worker节点：运行应用工作负载；3) etcd集群：通常与Master节点部署在一起，形成分布式键值存储；4) 负载均衡：在Master节点前配置负载均衡器，实现API Server的高可用访问；5) 存储：配置共享存储或分布式存储确保数据持久化；6) 网络：配置Pod网络和Service网络，确保集群内部通信。这种架构确保任何单个节点故障都不会影响集群整体可用性。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.8366666666666667,
+        "confidence": 0.9333333333333335,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2734.6225657463074,
+      "baseline_response_time": 3.0249691009521484,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere作为容器编排平台的核心架构是什么？",
+        "category": "架构设计",
+        "expected_knowledge": "KubeSphere整体架构、与Kubernetes的关系",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere是基于Kubernetes构建的容器编排平台，采用分层架构设计：1) 基础层：Kubernetes集群提供容器编排能力；2) 存储层：支持多种存储后端如Ceph、GlusterFS等；3) 网络层：基于Calico、Flannel等CNI实现；4) 服务层：包括DevOps、服务网格、多租户等核心功能模块；5) 接口层：提供Web控制台、API和CLI等多种交互方式；6) 应用层：支持应用商店、应用模板等。整体架构具有高可扩展性、模块化和云原生的特点。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7629525341914722,
+        "confidence": 0.9376477754829003,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2946.433814048767,
+      "baseline_response_time": 3.027714729309082,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "Notification Manager是如何实现多租户通知管理的？",
+        "category": "架构设计",
+        "expected_knowledge": "多租户架构、Config和Receiver分离模式、标签选择机制",
+        "difficulty": "困难",
+        "ground_truth_answer": "Notification Manager通过以下机制实现多租户通知管理：1) 配置分离：采用Config定义发送配置，Receiver定义接收配置的分离模式；2) 标签区分：使用type标签区分全局(global)、默认(default)和租户(tenant)类型的资源；3) 选择器关联：Receiver通过标签选择器选择对应的Config；4) 消息路由：根据告警消息的namespace标签将通知路由到相应租户的Receiver；5) 权限隔离：全局Receiver只能使用全局Config，租户Receiver可以使用租户Config和全局Config；6) 动态配置：通过监控CRD变更实现配置的动态更新。这种设计既保证了租户间的隔离，又实现了配置的灵活复用。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.9028571428571428,
+        "confidence": 0.9512860696539404,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果缺乏文档多样性"
+        ],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2031.3066382408142,
+      "baseline_response_time": 3.0312178134918213,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere中CRD的作用是什么？举例说明。",
+        "category": "架构设计",
+        "expected_knowledge": "自定义资源定义的概念和在KubeSphere中的应用",
+        "difficulty": "中等",
+        "ground_truth_answer": "CRD（Custom Resource Definition）在KubeSphere中用于扩展Kubernetes API，定义自定义资源类型。主要作用：1) 功能扩展：为KubeSphere特有功能定义资源模型；2) 声明式管理：通过YAML文件管理复杂的业务逻辑；3) 控制器模式：配合Custom Controller实现自动化运维。典型例子：Notification Manager定义了三个CRD - NotificationManager用于配置通知管理器本身，Config定义通知渠道的发送配置，Receiver定义接收方信息。这些CRD使得告警通知系统可以通过Kubernetes原生的资源管理方式进行配置和操作。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.23615654849820147,
+        "confidence": 0.9481340626025464,
+        "is_sufficient": false,
+        "quality_issues": [],
+        "recommendation": "检索质量不足，建议更换查询策略或提示用户补充信息"
+      },
+      "rag_response_time": 2081.6030180454254,
+      "baseline_response_time": 3.0390799045562744,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere如何实现租户隔离？",
+        "category": "架构设计",
+        "expected_knowledge": "多租户架构、命名空间隔离、权限管理",
+        "difficulty": "困难",
+        "ground_truth_answer": "KubeSphere通过多层次机制实现租户隔离：1) 工作空间隔离：顶层抽象，包含多个项目和DevOps项目；2) 项目隔离：基于Kubernetes Namespace实现资源隔离；3) 网络隔离：通过Network Policy控制租户间网络访问；4) 存储隔离：支持租户专用存储类和存储配额；5) 权限隔离：基于RBAC的细粒度权限控制，支持平台、工作空间、项目三级权限；6) 资源隔离：通过Resource Quota限制租户资源使用；7) 监控隔离：租户只能查看自己的监控数据；8) 日志隔离：日志按租户进行过滤和展示。这种多维度隔离确保了租户间的安全性和独立性。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7025178530247679,
+        "confidence": 0.9359087930279535,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2126.690076112747,
+      "baseline_response_time": 3.026834011077881,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "Notification Manager定义了哪些CRD？每个CRD的作用是什么？",
+        "category": "通知管理",
+        "expected_knowledge": "NotificationManager、Config、Receiver三个CRD的定义和作用",
+        "difficulty": "中等",
+        "ground_truth_answer": "Notification Manager定义了三个核心CRD：1) NotificationManager：用于配置Notification Manager本身，包括镜像、副本数、volumes、亲和性、污点、资源配额等部署参数，同时定义发送通知所需的全局配置、接收者选择器和租户管理配置；2) Config：用于定义通知渠道发送方的配置信息，如邮件发送服务器设置、企业微信用于发送消息的APP信息、Slack的Webhook地址等；3) Receiver：用于定义通知渠道接收方的信息，如邮件接收地址、企业微信群聊、Slack频道等。这三个CRD协同工作，实现了灵活的多租户通知配置管理。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.61,
+        "confidence": 0.9338721583230065,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 2702.5690717697144,
+      "baseline_response_time": 3.0468342304229736,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere中全局Receiver和租户Receiver有什么区别？",
+        "category": "通知管理",
+        "expected_knowledge": "全局和租户级别的通知配置差异、标签区分方式",
+        "difficulty": "中等",
+        "ground_truth_answer": "全局Receiver和租户Receiver的区别：1) 标签区分：全局Receiver使用type: global标签，租户Receiver使用type: tenant标签；2) 权限范围：全局Receiver只能使用全局Config(type: default)，租户Receiver可以使用租户Config和全局Config；3) 消息接收：所有通知消息都会发送到全局Receiver，租户Receiver只接收对应namespace的消息；4) 管理权限：全局Receiver由集群管理员管理，租户Receiver由租户管理员管理；5) 配置复用：全局Config可以被所有租户复用，实现了配置共享和简化管理。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7050797291393621,
+        "confidence": 0.9520973567208338,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 14.766903162002563,
+      "baseline_response_time": 3.040231943130493,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "如何在KubeSphere中配置企业微信告警通知？",
+        "category": "通知管理",
+        "expected_knowledge": "企业微信APP配置、通知渠道设置",
+        "difficulty": "中等",
+        "ground_truth_answer": "配置企业微信告警通知的步骤：1) 创建企业微信应用：在企业微信管理后台创建应用，获取CorpID、AgentID和Secret；2) 创建Config资源：定义企业微信的发送配置，包括API地址、CorpID、AgentID、Secret等信息；3) 创建Receiver资源：指定接收消息的用户或部门，可以通过toUser、toParty或toTag指定接收范围；4) 配置标签选择：Receiver通过标签选择器关联对应的企业微信Config；5) 测试验证：发送测试告警验证配置是否正确。企业微信通知支持文本、Markdown等多种消息格式。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7537142857142858,
+        "confidence": 0.9660204230597428,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2674.884360074997,
+      "baseline_response_time": 1060.1135258674622,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere的通知消息是如何根据namespace进行路由的？",
+        "category": "通知管理",
+        "expected_knowledge": "消息路由机制、租户标签匹配、通知发送逻辑",
+        "difficulty": "困难",
+        "ground_truth_answer": "通知消息的namespace路由机制：1) 全局路由：所有通知消息都会发送到全局Receiver，无论namespace是否为空；2) namespace为空：消息只发送到全局Receiver；3) namespace非空：Notification Manager根据namespace查找待通知的租户列表，然后将消息发送到对应租户的Receiver；4) 租户匹配：通过namespace标签匹配机制确定消息应该路由到哪些租户Receiver；5) 标签选择：消息路由时会考虑Receiver的标签选择器配置，确保消息发送到正确的接收方；6) 多重发送：一条消息可能同时发送到多个Receiver，包括全局Receiver和多个租户Receiver。这种机制实现了灵活的多租户通知分发。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.73,
+        "confidence": 0.957779513956711,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 2586.759526014328,
+      "baseline_response_time": 3.0507800579071045,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere部署失败时应该如何排查？",
+        "category": "故障排除",
+        "expected_knowledge": "常见部署问题、日志查看方法、调试技巧",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere部署失败的排查步骤：1) 检查系统资源：确认CPU、内存、磁盘空间是否满足最小要求；2) 验证网络连通性：检查节点间网络是否正常，防火墙设置是否正确；3) 查看部署日志：使用kubectl logs查看安装器和各组件的日志；4) 检查容器状态：使用kubectl get pods -A查看所有Pod状态，找出异常Pod；5) 验证配置文件：检查KubeKey配置文件语法是否正确；6) 检查依赖服务：确认Docker/Containerd、etcd等基础服务状态；7) 存储检查：验证存储类和持久卷是否正常；8) 重新部署：清理失败的安装，重新执行部署命令。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.5378165435942371,
+        "confidence": 0.9198387518335737,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 3008.681866168976,
+      "baseline_response_time": 635.8495507240295,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "Containerd数据目录空间不足时如何解决？",
+        "category": "故障排除",
+        "expected_knowledge": "软链接方案、目录迁移、存储扩展",
+        "difficulty": "中等",
+        "ground_truth_answer": "解决Containerd数据目录空间不足的方法：1) 停止服务：systemctl stop containerd；2) 创建新存储：挂载更大的磁盘到新目录如/data/containerd；3) 迁移数据：cp -a /var/lib/containerd/* /data/containerd/；4) 创建软链接：rm -rf /var/lib/containerd && ln -s /data/containerd /var/lib/containerd；5) 重启服务：systemctl start containerd；6) 验证功能：确认容器和镜像正常工作。注意：KubeKey不支持自定义Containerd数据目录，只能通过软链接方式解决。在部署前预先配置可以避免后期问题。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.6508677068867763,
+        "confidence": 0.9620903206795198,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 1970.5750160217285,
+      "baseline_response_time": 989.8338139057159,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeSphere中告警通知不生效应该检查哪些配置？",
+        "category": "故障排除",
+        "expected_knowledge": "通知配置排查、CRD状态检查、网络连通性验证",
+        "difficulty": "中等",
+        "ground_truth_answer": "告警通知不生效的排查清单：1) CRD配置检查：验证NotificationManager、Config、Receiver资源是否正确创建和配置；2) 标签匹配：检查Receiver的标签选择器是否正确匹配Config；3) 服务状态：确认notification-manager服务运行正常；4) 网络连通性：测试到邮件服务器、企业微信API等外部服务的网络连接；5) 认证信息：验证邮箱密码、企业微信Secret等认证信息是否正确；6) 告警规则：检查Prometheus告警规则是否触发；7) 日志分析：查看notification-manager日志排查具体错误；8) 权限验证：确认相关ServiceAccount具有必要权限。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.5785365853658536,
+        "confidence": 0.9620780452952192,
+        "is_sufficient": true,
+        "quality_issues": [
+          "检索结果分数区分度不够"
+        ],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 2688.6256110668182,
+      "baseline_response_time": 3.046502113342285,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "如何排查KubeSphere日志收集功能异常？",
+        "category": "故障排除",
+        "expected_knowledge": "日志组件状态、配置检查、网络和存储问题排查",
+        "difficulty": "困难",
+        "ground_truth_answer": "日志收集功能异常的排查方法：1) 组件状态检查：确认fluent-bit、elasticsearch、kibana等日志相关Pod运行正常；2) 配置验证：检查fluent-bit配置是否正确，输出目标是否配置正确；3) 存储检查：验证日志存储空间是否充足，elasticsearch存储是否正常；4) 网络连通性：测试fluent-bit到elasticsearch的网络连接；5) 权限验证：确认fluent-bit具有读取容器日志的权限；6) 日志路径：检查容器日志文件路径是否正确挂载；7) 过滤规则：验证日志过滤和解析规则是否正确；8) 索引模板：检查elasticsearch索引模板和映射配置；9) 查看组件日志：分析各日志组件的详细错误日志。",
+        "ground_truth": null
+      },
+      "rag_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "baseline_answer": "抱歉，生成回答时出现错误: LLM API请求失败: [Errno 8] nodename nor servname provided, or not known",
+      "rag_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.32400000000000007,
+        "overall_score": 0.37720000000000004,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.7542857142857142,
+        "confidence": 0.9538919044535756,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 2711.6652557849884,
+      "baseline_response_time": 3.0303680896759033,
+      "winner": "tie",
+      "improvement_score": 0.0
+    },
+    {
+      "question": {
+        "question": "KubeKey配置文件中的关键参数有哪些？",
+        "category": "配置管理",
+        "expected_knowledge": "KubeKey配置文件结构、节点配置、组件设置",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeKey配置文件的关键参数包括：1) apiVersion和kind：定义配置文件版本和类型；2) metadata：配置集群名称等元信息；3) spec.hosts：定义集群节点信息，包括节点IP、用户名、密码、角色等；4) spec.roleGroups：定义节点角色分组，如etcd、master、worker；5) spec.controlPlaneEndpoint：配置负载均衡器地址和端口；6) spec.kubernetes：指定Kubernetes版本、容器运行时、网络插件等；7) spec.kubesphere：配置KubeSphere版本和功能组件启用状态；8) spec.registry：配置镜像仓库地址；9) spec.addons：定义需要安装的附加组件。正确配置这些参数确保集群部署成功。",
+        "ground_truth": null
+      },
+      "rag_answer": "根据提供的文档内容，KubeKey配置文件中的关键参数包括：\n\n1. **Kubernetes版本**：在选择Kubernetes版本时，文档提到了KubeKey支持的版本范围，并且特别提到了生产环境中可以选择的版本，例如v1.26.15或其他次要版本是双数，补丁版本数超过5的版本。文档中还特别指出不建议选择太老的版本，因为已经有新版本发布（如v1.30）。例如，在文档4中提到了KubeKey支持的版本v1.28.8，并在文档5中提到了KubeSphere v3.4.0和Kubernetes v1.26.5的结合使用。\n\n2. **KubeSphere版本**：文档5提到了在创建KubeSphere和Kubernetes的部署配置文件时，需要指定KubeSphere的版本，例如v3.4.0。\n\n3. **配置文件名称**：在创建配置文件时，可以通过`-f`参数指定配置文件的名称，如果不指定，则默认使用`config-sample.yaml`。例如，在文档4和文档5中都提到了指定配置文件名称的操作。\n\n4. **namespace_override参数**：文档3提到了在部署KubeSphere时需要加入的参数`namespace_override: kubesphereio`，以避免命名空间不匹配的问题。\n\n这些参数对于部署Kubernetes和KubeSphere集群至关重要，因为它们决定了集群的版本和配置文件的基础设置。具体的配置参数和示例可以在KubeKey的官方文档中找到更详细的说明和示例。",
+      "baseline_answer": "您好，根据您提出的问题，您想要了解KubeKey配置文件中的关键参数。虽然您没有提供具体的文档内容，但我可以根据我的知识库为您解答这个问题。\n\nKubeKey是一个用于安装、升级或维护Kubernetes集群的工具，其配置文件（通常是一个YAML文件）中包含了许多关键参数，以下是一些重要的参数：\n\n1. **apiVersion**：配置文件的版本。\n2. **kind**：指定YAML文件的资源类型，对于KubeKey配置文件，这通常是`Configuration`。\n3. **metadata**：包含集群名称、集群版本等元数据信息。\n4. **spec**：定义了具体的集群配置，包括以下子项：\n   - **hosts**：定义了集群中所有主机的详细信息。\n   - **roles**：指定每个主机的角色，例如master、worker等。\n   - **kubernetes**：包含了Kubernetes集群的版本和配置信息。\n   - **network**：定义了网络插件和网络相关的配置。\n   - **registry**：指定镜像仓库相关的配置，如镜像仓库地址、镜像仓库认证等。\n   - **addons**：定义了需要安装的附加组件。\n   - **controlPlaneEndpoint**：指定控制平面的访问端点，包括API Server的URL和端口。\n   - **kubeconfig**：包含创建的集群的`kubeconfig`文件信息，用于访问集群。\n\n这些参数共同定义了一个Kubernetes集群的基本配置，用户可以根据需求调整这些参数以适应不同的部署环境和配置需求。\n\n如果您需要更具体的配置文件示例或有其他关于KubeKey的问题，请告知，我会尽力帮助您。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.4,
+        "overall_score": 0.76,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.8,
+        "completeness_score": 0.4,
+        "overall_score": 0.4,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.17999999999999997
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.5806158449863272,
+        "confidence": 0.9543181442032868,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 4054.6662559509277,
+      "baseline_response_time": 6.3065361976623535,
+      "winner": "rag",
+      "improvement_score": 0.8999999999999999
+    },
+    {
+      "question": {
+        "question": "如何在KubeSphere中配置持久化存储？",
+        "category": "配置管理",
+        "expected_knowledge": "存储类配置、PV/PVC创建、动态存储供应",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere持久化存储配置步骤：1) 创建存储类(StorageClass)：定义存储提供商、回收策略、卷绑定模式等参数；2) 配置存储后端：如Ceph、GlusterFS、NFS等，确保存储服务正常运行；3) 创建持久卷(PV)：手动创建或通过动态供应自动创建；4) 创建持久卷声明(PVC)：应用通过PVC申请存储资源；5) 应用绑定：在Pod或Deployment中引用PVC；6) 监控存储：通过KubeSphere控制台监控存储使用情况；7) 备份策略：配置存储数据备份和恢复机制。KubeSphere支持多种存储类型，建议根据业务需求选择合适的存储方案。",
+        "ground_truth": null
+      },
+      "rag_answer": "在KubeSphere中配置持久化存储，可以通过以下几个步骤进行：\n\n1. **选择合适的持久化存储解决方案**：根据业务需求和环境条件，选择一个合适的后端持久化存储解决方案。文档4提到在Kubernetes生态系统中，持久化存储扮演着至关重要的角色，且提到了Ceph、GlusterFS、NFS、openEBS等已被广泛采用的解决方案。\n\n2. **使用Rook集成Ceph**：文档2和文档3介绍了如何使用Rook来创建和维护Ceph集群，并作为Kubernetes的持久化存储。Rook是一个开源的云原生存储编排器，可以与云原生环境进行原生集成，自动化存储管理员的部署、引导、配置、扩展、升级、迁移、灾难恢复、监控和资源管理等任务。\n\n3. **Longhorn集成**：文档1和文档4提到了Longhorn作为一个持久化存储解决方案，并介绍了如何将Longhorn集成至KubeSphere管理的Kubernetes集群。Longhorn提供了灵活和选择性的存储服务。\n\n4. **使用Helm进行部署**：文档1提到了利用Helm安装Longhorn的方法，Helm是一个Kubernetes的包管理工具，可以用来部署和管理Kubernetes应用，包括持久化存储解决方案。\n\n5. **自定义存储类和PV/PVC配置**：文档5提到了持久化存储使用自定义的NFS存储类nfs-sc，以及后续更正式的部署考虑使用Ceph或其他高性能存储，以及合理规划各组件使用持久化存储时所分配的存储空间。\n\n综上所述，在KubeSphere中配置持久化存储可以通过选择合适的存储解决方案（如Ceph、Longhorn等），利用Rook进行集成和管理，使用Helm进行部署，并根据具体需求自定义存储类和持久卷（PV）与持久卷请求（PVC）的配置。",
+      "baseline_answer": "很抱歉，根据您当前提供的描述，没有找到与“如何在KubeSphere中配置持久化存储”相关的文档内容。KubeSphere是一个基于Kubernetes的开源容器混合云平台，关于如何在KubeSphere中配置持久化存储的问题，通常需要参考KubeSphere的官方文档或者是相关的使用手册。\n\n以下是一般步骤的概述，具体操作可能会因KubeSphere的版本和配置有所不同：\n\n1. **创建存储类（StorageClass）**：在Kubernetes中，存储类定义了如何使用底层的持久化存储系统。您需要创建一个存储类，指定存储插件（如NFS、Ceph、RBD等）和存储配置。\n\n2. **创建持久化卷（PersistentVolume）**：持久化卷是集群中的一块存储资源，您可以手动创建，或者通过存储类自动创建。\n\n3. **创建持久化卷请求（PersistentVolumeClaim）**：在您的应用部署文件中，您可以声明需要的存储资源，通过持久化卷请求来绑定到相应的持久化卷。\n\n4. **配置工作负载**：在您的应用的部署配置中，引用持久化卷请求，并指定挂载点。\n\n为了获得详细的操作指导，请提供具体的KubeSphere版本信息，或者上传相关的使用文档。如果您需要我查找网络资源，请告知我，我可以帮您搜索相关的教程和文档。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.8,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.8140000000000001,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.88
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.8,
+        "consistency_score": 0.5272727272727272,
+        "completeness_score": 0.6,
+        "overall_score": 0.6581818181818182,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.4363636363636363
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.8609411764705882,
+        "confidence": 0.9282681922721056,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量良好，可以继续生成答案"
+      },
+      "rag_response_time": 16.61767601966858,
+      "baseline_response_time": 5.965345144271851,
+      "winner": "rag",
+      "improvement_score": 0.23674033149171275
+    },
+    {
+      "question": {
+        "question": "KubeSphere集群节点的角色分配原则是什么？",
+        "category": "配置管理",
+        "expected_knowledge": "master节点、worker节点、etcd节点的职责分工",
+        "difficulty": "中等",
+        "ground_truth_answer": "KubeSphere集群节点角色分配原则：1) Master节点：运行Kubernetes控制平面组件(API Server、Controller Manager、Scheduler)和KubeSphere控制器，建议奇数个(3/5/7)确保高可用；2) Worker节点：运行业务工作负载，可根据业务需求弹性扩展；3) etcd节点：存储集群状态数据，通常与Master节点共置，独立部署时也需要奇数个；4) 边缘节点：可选，用于暴露服务到集群外部；5) 资源隔离：Master节点通常设置污点避免调度业务Pod；6) 网络考虑：确保节点间网络互通，Master节点需要稳定的网络连接；7) 存储规划：Master节点需要可靠存储，Worker节点根据业务需求配置。",
+        "ground_truth": null
+      },
+      "rag_answer": "根据提供的文档内容，KubeSphere集群节点的角色分配原则可以从以下几个方面理解：\n\n1. **节点角色配置**：文档1提到了节点标签的概念，说明在KubeSphere中可以通过为节点配置标签来配合yml文件使用，这可能是用于区分节点角色的一种方式。\n\n2. **节点角色和用途**：文档2显示了在执行`kubectl get nodes -o wide`命令后，可以查看到节点的角色（ROLES），包括control-plane和worker。这表明节点根据其功能被分配了不同的角色，如控制平面节点（control-plane）和工作节点（worker）。\n\n3. **多集群角色定义**：文档3进一步阐述了在多集群架构中，集群被定义为三种角色：host、member和none。这种角色定义与节点角色不同，它是指整个集群在多集群管理中扮演的角色：\n   - **host**：安装完整的KubeSphere核心组件，可以通过前端页面管理各个集群。\n   - **member**：没有安装KubeSphere Console前端组件，不提供独立的页面管理入口，但可以通过host集群的前端入口进行管理。\n   - **none**：没有定义角色，主要用于兼容单集群模式。\n\n综合上述文档内容，KubeSphere集群节点的角色分配原则是基于节点的功能和用途来分配的，包括控制平面节点和工作节点等。同时，在多集群环境中，集群整体也有相应的角色定义，用于管理和操作不同集群。",
+      "baseline_answer": "很抱歉，由于没有提供与KubeSphere集群节点角色分配原则相关的文档内容，我无法直接给出答案。不过，通常在Kubernetes这类容器编排系统中，节点的角色分配原则会涉及以下几个方面：\n\n1. **主节点（Master Node）**：负责管理集群状态和调度Pod等任务。\n2. **工作节点（Worker Node）**：负责运行Pod和容器。\n3. **角色分离**：为了安全性和灵活性，通常会将主节点和工作节点的角色分离，即主节点不运行业务Pod，工作节点不参与集群管理。\n4. **高可用性（HA）配置**：在多节点配置中，会部署多个主节点以实现高可用性。\n5. **选择性调度**：某些Pod可能需要特定的资源或配置，因此会根据节点的角色和能力进行调度。\n\n如果您有关于KubeSphere集群节点角色分配的文档或资料，可以上传，我将能够提供更准确的答案。如果没有，您可以尝试访问KubeSphere的官方文档或社区论坛来获取相关信息。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.6421052631578947,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.7666315789473684,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.7852631578947369
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.1,
+        "consistency_score": 0.6523809523809524,
+        "completeness_score": 0.4,
+        "overall_score": 0.3557142857142857,
+        "is_reliable": false,
+        "quality_issues": [
+          "答案与提供的文档内容相关性较低"
+        ],
+        "confidence": 0.2685714285714285
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.6972690763052208,
+        "confidence": 0.9578703744475534,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 15.422399044036865,
+      "baseline_response_time": 4.305777072906494,
+      "winner": "rag",
+      "improvement_score": 1.1551891777636865
+    },
+    {
+      "question": {
+        "question": "如何优化KubeSphere在ARM架构上的性能？",
+        "category": "配置管理",
+        "expected_knowledge": "ARM架构特点、性能调优、资源配置优化",
+        "difficulty": "困难",
+        "ground_truth_answer": "ARM架构上的KubeSphere性能优化策略：1) 镜像优化：使用ARM原生镜像，避免x86镜像转换带来的性能损失；2) 内存管理：ARM处理器内存带宽相对较低，合理设置Pod内存限制和节点内存预留；3) CPU调度：根据ARM处理器核心数量调整Kubernetes调度策略，设置合适的CPU资源限制；4) 存储优化：选择适合ARM架构的高性能存储方案，如NVMe SSD；5) 网络配置：选择轻量级网络插件，如Flannel，减少网络开销；6) 组件精简：禁用不必要的KubeSphere功能组件，减少资源消耗；7) 监控调优：调整监控采集频率，平衡监控精度与性能消耗；8) 节点规划：根据ARM处理器特性合理规划节点数量和规格。",
+        "ground_truth": null
+      },
+      "rag_answer": "针对KubeSphere在ARM架构上的性能优化，可以参考以下几个方面的信息：\n\n1. **选择合适的容器平台和版本**：\n   - 文档2和文档5中提到，KubeSphere作为一款开源容器平台，积极参与并探索在ARM架构下的应用与创新。选择正确的KubeSphere版本（如v3.4.0）和兼容的Kubernetes版本（如v1.26.5）以及Containerd（如1.6.4）是基础。\n\n2. **使用KubeKey工具进行自动化部署**：\n   - 根据文档3和文档5的描述，KubeKey工具能够实现在ARM架构服务器上的自动化部署，这对于减少部署过程中可能出现的错误和提高效率至关重要。\n\n3. **处理容器镜像架构类型的差异**：\n   - 文档3和文档5提到，在ARM架构和x86架构的服务器上部署KubeSphere和Kubernetes时，最大的区别在于所有服务使用的容器镜像架构类型的不同。因此，需要确保使用正确的ARM架构容器镜像，或者在缺少官方支持时，根据官方源码手工构建ARM版镜像。\n\n4. **优化CNI网络插件配置**：\n   - 文档1中提到，Cilium是一个性能表现较好的CNI网络插件，并且提到了通过优化MTU配置可以获得最佳性能。因此，在ARM架构上部署KubeSphere时，考虑使用Cilium作为网络插件，并优化MTU配置以提升性能。\n\n5. **关注网络性能和内存占用**：\n   - 根据文档1，eBPF和XDP可以显著提升性能，同时Cilium的内存占用主要来自于eBPF的Map分配。因此，优化eBPF Map的大小和配置可以减少内存占用，提高整体性能。\n\n6. **绕过iptables以提升性能**：\n   - 文档1还提到，绕过iptables可以进一步提升性能，因此可以考虑在KubeSphere中配置网络策略，以减少对iptables的依赖。\n\n7. **调整和优化配置参数**：\n   - 文档4中提到，通过优化MTU配置可以获得最佳性能，并且不同配置之间的CPU使用率差异很小。这意味着通过细致调整和优化KubeSphere和Kubernetes的配置参数，可以在ARM架构上实现性能的提升。\n\n综上所述，优化KubeSphere在ARM架构上的性能需要考虑选择合适的版本、使用自动化部署工具、处理容器镜像架构差异、优化网络配置、减少内存占用和调整配置参数等多个方面。",
+      "baseline_answer": "由于您提到没有找到与“如何优化KubeSphere在ARM架构上的性能”相关的文档内容，这意味着目前无法直接回答您的问题，因为我需要依赖于具体的文档信息来提供详细的答案。不过，我可以提供一些一般性的建议和思路，这些可能对优化KubeSphere在ARM架构上的性能有所帮助：\n\n1. **资源调度优化**：\n   - 根据ARM架构的特性调整KubeSphere的调度策略，比如优先调度轻量级的应用到ARM节点上。\n   - 利用KubeSphere的资源自动扩展功能，根据负载情况动态调整资源分配。\n\n2. **容器优化**：\n   - 使用轻量级的容器运行时，如containerd或CRI-O，它们可能更适合ARM架构。\n   - 对容器镜像进行优化，减少镜像大小，加快启动速度。\n\n3. **存储优化**：\n   - 根据ARM节点的性能特点选择合适的存储解决方案，比如使用本地存储或者优化过的分布式存储系统。\n   - 调整存储I/O参数，以适应ARM架构的处理能力。\n\n4. **网络优化**：\n   - 针对ARM架构优化网络配置，比如使用DPDK或者SR-IOV技术来提高网络性能。\n   - 优化KubeSphere的网络策略，减少网络延迟。\n\n5. **监控和日志**：\n   - 利用KubeSphere的监控和日志功能，实时监控ARM节点的性能，发现瓶颈并及时优化。\n   - 定期分析日志数据，找出性能问题。\n\n6. **操作系统和内核优化**：\n   - 选择针对ARM架构优化的操作系统和内核版本，以获得更好的性能。\n   - 调整内核参数，以适应ARM架构的特点。\n\n7. **应用程序优化**：\n   - 针对ARM架构优化应用程序代码，减少计算复杂度和资源消耗。\n   - 使用多线程和异步处理来提高应用程序在ARM架构上的性能。\n\n请注意，这些是一般性的建议，具体的优化措施需要根据您KubeSphere部署的具体情况和ARM架构的特点来定制。如果有具体的文档或者更详细的技术需求，我可能能够提供更具体的建议。",
+      "rag_quality": {
+        "faithfulness_score": 1.0,
+        "consistency_score": 0.903225806451613,
+        "completeness_score": 0.5800000000000001,
+        "overall_score": 0.844967741935484,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.9419354838709678
+      },
+      "baseline_quality": {
+        "faithfulness_score": 0.8,
+        "consistency_score": 0.5954545454545455,
+        "completeness_score": 0.6,
+        "overall_score": 0.6786363636363637,
+        "is_reliable": true,
+        "quality_issues": [],
+        "confidence": 0.47727272727272724
+      },
+      "retrieval_quality": {
+        "relevance_score": 0.6248824940047962,
+        "confidence": 0.9236229557194812,
+        "is_sufficient": true,
+        "quality_issues": [],
+        "recommendation": "检索质量中等，建议谨慎生成答案并标注不确定性"
+      },
+      "rag_response_time": 18.297993898391724,
+      "baseline_response_time": 7.702298164367676,
+      "winner": "rag",
+      "improvement_score": 0.24509647170667417
+    }
+  ]
+}

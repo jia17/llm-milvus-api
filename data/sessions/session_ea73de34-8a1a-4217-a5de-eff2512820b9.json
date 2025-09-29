@@ -1,0 +1,103 @@
+{
+  "session_id": "ea73de34-8a1a-4217-a5de-eff2512820b9",
+  "title": "对话 08-30 19:40",
+  "created_at": "2025-08-30T11:40:39.529843+00:00",
+  "updated_at": "2025-08-30T11:40:51.531134+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "EDA是什么",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "EDA，即电子设计自动化（Electronic Design Automation），是一种以计算机软件为平台的技术，它覆盖了对IC（集成电路）和PCB（印刷电路板）电子系统的设计、仿真、验证与制造的自动化过程。具体来说，EDA技术包括以下几个方面：\n\n1. **设计输入**：使用硬件描述语言（HDL），如Verilog、VHDL或SystemC，或者原理图进行设计输入。\n2. **功能仿真**：通过软件如ModelSim、Questa、VCS等进行功能仿真。\n3. **逻辑综合**：使用工具如Design Compiler（Synopsys）、Genus（Cadence）等进行逻辑综合。\n4. **静态时序分析**：利用PrimeTime（Synopsys）等工具进行静态时序分析。\n5. **布局布线**：使用Aprisa（Siemens）、Innovus（Cadence）等工具进行布局布线。\n\nEDA技术的发展经历了几个阶段：\n- 1970年代：CAD（二维图形编辑）\n- 1980年代：CAE（引入电路功能、结构设计）\n- 1990年代至今：EDA（高级语言描述、系统仿真、综合优化）\n\nEDA在整个半导体产业中扮演着关键角色，尽管它只占全球半导体增加值的3%，但却决定着整个芯片设计的实现。EDA工具链包括Synopsys、Cadence、Siemens等国际大厂，以及华大九天等国产EDA厂商。EDA的应用场景广泛，包括数字IC、模拟RF、3D IC、PCB、SiP、FPGA等。",
+      "metadata": {
+        "mode": "rag",
+        "intent": "uncertain",
+        "confidence": 0.3,
+        "rag_used": true,
+        "retrieval_time": 0.4491720199584961,
+        "generation_time": 7.46140718460083,
+        "chunks_retrieved": 5,
+        "chunks_filtered": 4,
+        "sources": [
+          {
+            "content": "下面把 EDA（电子设计自动化）的系统资料一次性梳理给你：从基本概念、技术演进、典型工具与厂商、完整流程、学习资源到产业格局，全部给出可直接使用的链接和要点。你可以按需取用，也可以顺着参考文献继续深挖。 一、EDA 是什么？ 定义：以计算机软件为平台，对 ICPCB电子系统进行设计、仿真、验证与制造的自动化技术，覆盖设计输入逻辑综合布局布线物理验证流片全流程 。 发展阶段：  1970s CAD（二维图形编辑）  1980s CAE（引入电路功能、结构设计）  1990s 至今 EDA（高级语言描述、系统仿真、综合优化）。 产业杠杆：仅占全球半导体增加值 3，却决定着整个芯片设计能否实现 。 二、一条典型的 IC 设计流程（含工具示例） 设计输入：HDL（VerilogVHDLSystemC）或原理图 。 功能仿真：ModelSim、Questa、VCS。 逻辑综合：Design Compiler（Synopsys）、Genus（Cadence）。 静态时序分析：PrimeTime（Synopsys）。 布局布线：Aprisa（Siemens）、Innovus（Cadence）。",
+            "score": 0.45771203637123103,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 0,
+              "chunk_start": 0,
+              "chunk_end": 497,
+              "chunk_length": 497
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 0
+          },
+          {
+            "content": "EDA 产品白皮书（CalibreQuestaPADS 最新特性）：Siemens 官网白皮书区 。 学术前沿：广东工业大学 EDA 团队 2023-2025 在 ACM TODAES、IEEE TCAD 发表的 GNN-based 时序预测、FPGA 路由优化系列论文 ，可直接下载 PDF。 六、一张思维导图（文字版） EDA  概念：电子设计自动化  发展：CAD  CAE  EDA  流程：前端（RTLSyn） 后端（PnRSign-off）  工具链：Synopsys  Cadence  Siemens  华大九天  应用场景：数字 IC、模拟RF、3D IC、PCB、SiP、FPGA  学习路径：HDL  仿真  综合  STA  PnR  DFM  Tape-out 使用建议  入门：先读《EDA 技术概述》PDF 打基础  用开源 PrimeTime 教程 跑通一个 STA 实验。  进阶：选一家厂商（如 Cadence）下载 Learning  Support Portal 的 workshop 实验包，完整跑完 28 nm 设计案例。",
+            "score": 0.3757152080535888,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 3,
+              "chunk_start": 1266,
+              "chunk_end": 1749,
+              "chunk_length": 483
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 3
+          },
+          {
+            "content": "验证）。  国产：华大九天（Empyrean）、概伦电子、芯华章、国微思尔芯、鸿芯微纳、行芯科技 。 四、开源免费学习  实验资源 开源教程与仓库  Synopsys PrimeTime 全套中文教程（含案例）：https:gitcode.comUniversal-Tool3910a  《EDA 技术概述》4600 字中文讲义：PDF 下载 （http:www.ibook4us.com） 线上课程  CourseraedX 搜索关键词 VLSI CADFPGA Computing Systems。  B 站：搜索数字 IC 设计全流程或CMOS VLSI Design。 实验板卡与套件  Xilinx PYNQ-Z2、Intel Terasic DE10-Nano 等 FPGA 开发板。  高校实验系统：清华大学、北理工、西电等均有开源实验箱 。 五、延伸阅读与产业报告 中国 EDA 行业深度研究（技术、市场、国产替代）：微信公众号大隐于market。 Siemens EDA 产品白皮书（CalibreQuestaPADS 最新特性）：Siemens 官网白皮书区 。",
+            "score": 0.3399255871772766,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 2,
+              "chunk_start": 825,
+              "chunk_end": 1316,
+              "chunk_length": 491
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 2
+          },
+          {
+            "content": "ng  Support Portal 的 workshop 实验包，完整跑完 28 nm 设计案例。  关注国产替代：跟踪大隐于market公众号和华大九天官网，及时了解国产 EDA 工具链更新。",
+            "score": 0.3286441624164581,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 4,
+              "chunk_start": 1699,
+              "chunk_end": 2211,
+              "chunk_length": 98
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 4
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {},
+  "compressed": false
+}

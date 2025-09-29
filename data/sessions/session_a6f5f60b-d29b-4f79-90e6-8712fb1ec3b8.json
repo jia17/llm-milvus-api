@@ -1,0 +1,131 @@
+{
+  "session_id": "a6f5f60b-d29b-4f79-90e6-8712fb1ec3b8",
+  "title": "对话 08-30 21:19",
+  "created_at": "2025-08-30T13:19:12.921985+00:00",
+  "updated_at": "2025-08-30T13:19:47.779717+00:00",
+  "messages": [
+    {
+      "role": "user",
+      "content": "EDA（电子设计自动化）是什么？",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "抱歉，对话失败: HTTPConnectionPool(host='localhost', port=8002): Max retries exceeded with url: /conversation (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x13a402670>: Failed to establish a new connection: [Errno 61] Connection refused'))",
+      "metadata": {}
+    },
+    {
+      "role": "user",
+      "content": "EDA（电子设计自动化）是什么？",
+      "metadata": {}
+    },
+    {
+      "role": "assistant",
+      "content": "EDA，全称为电子设计自动化（Electronic Design Automation），是一种利用计算机软件平台对集成电路（IC）和印制电路板（PCB）电子系统进行设计、仿真、验证与制造的自动化技术。它覆盖了从设计输入到逻辑综合、布局布线、物理验证，直至流片的全流程。EDA技术的发展经历了几个阶段，从1970年代的CAD（二维图形编辑）、1980年代的CAE（引入电路功能、结构设计），到1990年代至今的EDA（高级语言描述、系统仿真、综合优化）。EDA在整个半导体产业链中扮演着关键角色，虽然它只占全球半导体增加值的3%，但却决定着整个芯片设计能否实现。简而言之，EDA是电子系统设计过程中不可或缺的工具，它极大地提高了设计的效率和准确性。",
+      "metadata": {
+        "mode": "rag",
+        "intent": "uncertain",
+        "confidence": 0.3,
+        "rag_used": true,
+        "retrieval_time": 0.8553450107574463,
+        "generation_time": 4.094376802444458,
+        "chunks_retrieved": 5,
+        "chunks_filtered": 5,
+        "sources": [
+          {
+            "content": "下面把 EDA（电子设计自动化）的系统资料一次性梳理给你：从基本概念、技术演进、典型工具与厂商、完整流程、学习资源到产业格局，全部给出可直接使用的链接和要点。你可以按需取用，也可以顺着参考文献继续深挖。 一、EDA 是什么？ 定义：以计算机软件为平台，对 ICPCB电子系统进行设计、仿真、验证与制造的自动化技术，覆盖设计输入逻辑综合布局布线物理验证流片全流程 。 发展阶段：  1970s CAD（二维图形编辑）  1980s CAE（引入电路功能、结构设计）  1990s 至今 EDA（高级语言描述、系统仿真、综合优化）。 产业杠杆：仅占全球半导体增加值 3，却决定着整个芯片设计能否实现 。 二、一条典型的 IC 设计流程（含工具示例） 设计输入：HDL（VerilogVHDLSystemC）或原理图 。 功能仿真：ModelSim、Questa、VCS。 逻辑综合：Design Compiler（Synopsys）、Genus（Cadence）。 静态时序分析：PrimeTime（Synopsys）。 布局布线：Aprisa（Siemens）、Innovus（Cadence）。",
+            "score": 9.508176689294764,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 0,
+              "chunk_start": 0,
+              "chunk_end": 497,
+              "chunk_length": 497
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 0
+          },
+          {
+            "content": "EDA 产品白皮书（CalibreQuestaPADS 最新特性）：Siemens 官网白皮书区 。 学术前沿：广东工业大学 EDA 团队 2023-2025 在 ACM TODAES、IEEE TCAD 发表的 GNN-based 时序预测、FPGA 路由优化系列论文 ，可直接下载 PDF。 六、一张思维导图（文字版） EDA  概念：电子设计自动化  发展：CAD  CAE  EDA  流程：前端（RTLSyn） 后端（PnRSign-off）  工具链：Synopsys  Cadence  Siemens  华大九天  应用场景：数字 IC、模拟RF、3D IC、PCB、SiP、FPGA  学习路径：HDL  仿真  综合  STA  PnR  DFM  Tape-out 使用建议  入门：先读《EDA 技术概述》PDF 打基础  用开源 PrimeTime 教程 跑通一个 STA 实验。  进阶：选一家厂商（如 Cadence）下载 Learning  Support Portal 的 workshop 实验包，完整跑完 28 nm 设计案例。",
+            "score": 7.127164100684917,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 3,
+              "chunk_start": 1266,
+              "chunk_end": 1749,
+              "chunk_length": 483
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 3
+          },
+          {
+            "content": "ng  Support Portal 的 workshop 实验包，完整跑完 28 nm 设计案例。  关注国产替代：跟踪大隐于market公众号和华大九天官网，及时了解国产 EDA 工具链更新。",
+            "score": 0.3608967781066894,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 4,
+              "chunk_start": 1699,
+              "chunk_end": 2211,
+              "chunk_length": 98
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 4
+          },
+          {
+            "content": "验证）。  国产：华大九天（Empyrean）、概伦电子、芯华章、国微思尔芯、鸿芯微纳、行芯科技 。 四、开源免费学习  实验资源 开源教程与仓库  Synopsys PrimeTime 全套中文教程（含案例）：https:gitcode.comUniversal-Tool3910a  《EDA 技术概述》4600 字中文讲义：PDF 下载 （http:www.ibook4us.com） 线上课程  CourseraedX 搜索关键词 VLSI CADFPGA Computing Systems。  B 站：搜索数字 IC 设计全流程或CMOS VLSI Design。 实验板卡与套件  Xilinx PYNQ-Z2、Intel Terasic DE10-Nano 等 FPGA 开发板。  高校实验系统：清华大学、北理工、西电等均有开源实验箱 。 五、延伸阅读与产业报告 中国 EDA 行业深度研究（技术、市场、国产替代）：微信公众号大隐于market。 Siemens EDA 产品白皮书（CalibreQuestaPADS 最新特性）：Siemens 官网白皮书区 。",
+            "score": 0.354801470041275,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 2,
+              "chunk_start": 825,
+              "chunk_end": 1316,
+              "chunk_length": 491
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 2
+          },
+          {
+            "content": "（Synopsys）。 布局布线：Aprisa（Siemens）、Innovus（Cadence）。 DRCLVSDFM：Calibre（Siemens）。 物理验证与签核：PrimeShield、Tempus、IC Validator。 流片与测试：ATE 测试向量生成。 三、主要厂商  产品矩阵  Synopsys：PrimeTime、Design Compiler、IC Compiler II、DPT、ASIP Designer。  Cadence：Innovus、Genus、Spectre、Palladium、Xcelium。  Siemens EDA（原 Mentor）：Calibre、Questa、PADS Professional、Aprisa、Analog FastSPICE 。  Altair：PollEx（PCB 系统级仿真与验证）。  国产：华大九天（Empyrean）、概伦电子、芯华章、国微思尔芯、鸿芯微纳、行芯科技 。",
+            "score": 0.34764432609081264,
+            "metadata": {
+              "filename": "EDA_案例分析与最佳实践.txt",
+              "file_path": "/Users/fdy/Desktop/projects/llm-milvus_EDA/temp/EDA_案例分析与最佳实践.txt",
+              "file_size": 3575,
+              "file_type": ".txt",
+              "created_time": 1756024073.5157957,
+              "modified_time": 1756024073.5157957,
+              "chunk_index": 1,
+              "chunk_start": 447,
+              "chunk_end": 875,
+              "chunk_length": 428
+            },
+            "doc_id": "doc_f186cff00c9d3285",
+            "chunk_index": 1
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {},
+  "compressed": false
+}
